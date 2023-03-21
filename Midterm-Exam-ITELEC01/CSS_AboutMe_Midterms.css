@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Play&family=Shadows+Into+Light&display=swap');
+
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Play', sans-serif;
+    font-size: 20px;
 }
 body
 {
@@ -21,7 +24,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 45px;
+    padding-top: 30px;
     padding-left: 8%;
     padding-right: 8%;
 }
@@ -29,14 +32,15 @@ nav ul li{
     list-style-type: none;
     display: inline-block;
     padding: 10px 25px;
-    margin-left: 150px;
+
 }
 nav ul li a{
-    -webkit-text-stroke: 0.5px #000;
+    -webkit-text-stroke: -0.5px #000;
     color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
     text-transform: capitalize;
+    border: 10px solid black;
 }
 nav ul li a:hover{
     color: #9c111d;
