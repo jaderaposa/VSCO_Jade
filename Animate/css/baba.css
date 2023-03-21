@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+.logo{
+    float: top;
+    width: 20%;
+    height: 25%;
+    margin: 2% 0;
+    top: 11px;
+}
+.tada{
+    font-size: 100px;
+    align-items: center;
+    margin-left: 100px;
+    color: rgb(167, 0, 0);
+    margin-top: 20%;
+}
+.slider1,.slider2,.slider3,.slider4{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+img{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+nav .bar{
+    margin: 3.0%;
+    left: 17%;
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    position: absolute;
+    margin-top: 70px;
+
+}
+nav .bar li{
+    float:none;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.gen{
+    line-height: normal;
+    border: none;
+    background: none;
+    font-size: 30px;
+    color: white;
+}
+option{
+    color: black;
+}
+nav .bar li a:hover{
+    color: rgb(228, 0, 0);
+}
+.gen:hover{
+    color: rgb(228, 0, 0);
+}
+.search{
+    margin: 4.0%;
+    left: 77%;
+    position: absolute; 
+    top: 10px;
+    width: 100%; 
+    border: none;
+    font-size: 20px;
+}
+input [type=text]{
+    padding: 7px;
+    border: none;
+    font-size: 30px;
+}
+button{
+    background: rgb(233, 0, 0);
+    color: white;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    padding: 4.0px;
+    border: none;
+    font-size: 10px;
+}

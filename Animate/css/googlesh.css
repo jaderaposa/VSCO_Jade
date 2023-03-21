@@ -1,0 +1,56 @@
+/* amiri-quran-regular - latin */
+h1 {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Amiri Quran';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../amiri-quran-v7-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../amiri-quran-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../amiri-quran-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../amiri-quran-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../amiri-quran-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../amiri-quran-v7-latin-regular.svg#AmiriQuran') format('svg'); /* Legacy iOS */
+
+    text-align: center;
+    background-color: red;
+  }
+
+/* titillium-web-regular - latin */
+h2 {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../titillium-web-v15-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../titillium-web-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../titillium-web-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../titillium-web-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../titillium-web-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../titillium-web-v15-latin-regular.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+    text-shadow: 2px 2px 2px black;
+    color: rgb(187, 9, 9);
+    text-align: left;
+}
+
+body {
+    background-color: rgb(148, 140, 140);
+
+}
+/* akronim-regular - latin */
+/* akronim-regular - latin */
+h3 {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Akronim';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../akronim-v23-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../akronim-v23-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../akronim-v23-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../akronim-v23-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../akronim-v23-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../akronim-v23-latin-regular.svg#Akronim') format('svg'); /* Legacy iOS */
+    text-align: right;
+    color: black;
+    text-shadow: 2px 2px 2px red;
+    font-weight: bold;
+}

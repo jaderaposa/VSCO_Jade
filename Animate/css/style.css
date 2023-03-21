@@ -1,0 +1,55 @@
+.btn {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    color: var(--clr-accent);
+    background-color: var(--clr-rgba);
+    border: 10px solid var(--clr-accent);
+    border-radius: 5px;
+    align-content: center;
+
+    /* transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease ;
+    transition-delay: 0s; */
+
+    transition: all 0.3s;
+
+}
+
+.btn:hover {
+    transform: translateY(-10px);
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+}
+
+
+
+
+    /* Animations */
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-300px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+
+/* .heading-1 {
+    animation: slideInLeft 1s ease-in;
+
+    animation-name: slideInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both; 
+
+} */
+
+.slideInLeft {
+    animation: slideInLeft 1s ease-in ;
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<br><br>
+<head>
+    <title>
+        Registration Form
+    </title>
+</head>
+<body style="background-color:#82656c;">
+
+    <center>
+        <h1>Registration Form</h1>
+
+        <form action="" method="">
+
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td>
+                        <input type="text" name="firstname">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        <input type="text" name="lastname">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>UserName:</td>
+                    <td>
+                        <input type="text" name="user">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="pass">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td>
+                        <input type="password" name="confirmpass">
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <textarea name="address" cols="25" rows="4"></textarea>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label for="day">Date of Birth:</label>
+                    </td>
+                    <td>
+                        dd <select id="day">
+                            <option label="--"></option>
+                            <option value="">01</option>
+                            <option value="">02</option>
+                            <option value="">03</option>
+                            <option value="">04</option>
+                            <option value="">05</option>
+                            <option value="">06</option>
+                            <option value="">07</option>
+                            <option value="">08</option>
+                            <option value="">09</option>
+                            <option value="">10</option>
+                            <option value="">11</option>
+                            <option value="">12</option>
+                            <option value="">13</option>
+                            <option value="">14</option>
+                            <option value="">15</option>
+                            <option value="">16</option>
+                            <option value="">17</option>
+                            <option value="">18</option>
+                            <option value="">19</option>
+                            <option value="">20</option>
+                            <option value="">21</option>
+                            <option value="">22</option>
+                            <option value="">23</option>
+                            <option value="">24</option>
+                            <option value="">25</option>
+                            <option value="">26</option>
+                            <option value="">27</option>
+                            <option value="">28</option>
+                            <option value="">29</option>
+                            <option value="">30</option>
+                            <option value="">31</option>
+                        </select>
+                        <label for="month">mm</label>
+                        <select id="month">
+                            <option label="--"></option>
+                            <option value="">01</option>
+                            <option value="">02</option>
+                            <option value="">03</option>
+                            <option value="">04</option>
+                            <option value="">05</option>
+                            <option value="">06</option>
+                            <option value="">07</option>
+                            <option value="">08</option>
+                            <option value="">09</option>
+                            <option value="">10</option>
+                            <option value="">11</option>
+                            <option value="">12</option>                           
+                        </select>
+                        <label for="year">yyyy</label>
+                        <select id="year">
+                            <option label="----"></option>
+                            <option value="">1998</option>  
+                            <option value="">1999</option>  
+                            <option value="">2000</option>  
+                            <option value="">2001</option>  
+                            <option value="">2002</option>  
+                            <option value="">2003</option>  
+                            <option value="">2004</option>
+                            <option value="">2005</option>  
+                            <option value="">2006</option>  
+                            <option value="">2007</option>  
+                            <option value="">2008</option>  
+                            <option value="">2009</option>  
+                            <option value="">2010</option>  
+                            <option value="">2011</option>  
+                            <option value="">2012</option>  
+                            <option value="">2013</option>  
+                            <option value="">2014</option>  
+                            <option value="">2015</option>  
+                            <option value="">2016</option>  
+                            <option value="">2017</option>  
+                            <option value="">2018</option>  
+                            <option value="">2019</option>  
+                            <option value="">2020</option>  
+                            <option value="">2021</option>
+                            <option value="">2022</option> 
+                            <option value="">2023</option>  
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Sex:</td>
+                    <td>
+                        <input type="radio" value="Male"> Male
+                        <input type="radio" value="Female"> Female
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Marital Status:</td>
+                    <td>
+                        <input type="radio" value="single"> Single
+                        <input type="radio" value="married"> Married
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Mobile Number:</td>
+                    <td>
+                        <input type="number" name="mobilenumber">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Branch:</td>
+                    <td>
+                        <input type="radio" value="BSCS"> BSCS
+                        <input type="radio" value="BSIT"> BSIT
+                        <input type="radio" value="BSEE"> BSEE
+                        <input type="radio" value="BSCE"> BSCE
+                        <input type="radio" value="BLIS"> BLIS
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Languages Known:</td>
+                    <td>
+                        <input type="checkbox" name="languages" value="english"> English
+                        <input type="checkbox" name="languages" value="tagalog"> Tagalog
+                        <input type="checkbox" name="languages" value="bicol"> Bicol
+                        <input type="checkbox" name="languages" value="spanish"> Spanish
+                        <input type="checkbox" name="languages" value="french"> French
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><br>
+                        <input type="submit" name="submit">
+                        &nbsp;
+                        <input type="submit" name="cancel" value="Cancel">
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+
+    </center>
+    
+</body>
