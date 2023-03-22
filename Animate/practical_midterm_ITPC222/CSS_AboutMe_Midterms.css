@@ -355,3 +355,7 @@ div.about.skills.animate__animated.animate__fadeIn {
 div.about.interest.animate__animated.animate__fadeIn {
     animation-delay: 14s;
 }
+
+div.about.purpose.animate__animated.animate__fadeIn {
+    animation-delay: 15s;
+}
