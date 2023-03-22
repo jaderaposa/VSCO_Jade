@@ -300,7 +300,12 @@ p
 }
 
 span.fa.fa-facebook {
-    color: #3b5998 ;
+    color: white;
+    background-color: #3b5998;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
 }
 
 span.fa.fa-twitter {
