@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2023 at 01:32 PM
+-- Generation Time: Mar 24, 2023 at 03:32 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -50,7 +50,6 @@ CREATE TABLE `appointments` (
   `Counselor_ID` int(10) DEFAULT NULL,
   `Date_Start` date DEFAULT NULL,
   `Date_End` date DEFAULT NULL,
-  `Appointment_Destination` varchar(255) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
