@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="border: 2px solid black; display: inline-block; padding: 20px;">
+        <form id="frm1" style="padding: 20px;">
+            <p>First Name: <input type="text" id="fname" class="info" onchange="upperCase"></p><br>
+            <p>Last Name: <input type="text" id="lname" class="info" onchange="upperCase"></p><br>
+            <!-- <button type="submit" style="margin-left: auto; margin-right: auto; display: flex; width: 30px; height: 20px;"></button> -->
+        </form>
+    </div>
+
+    <!-- <p>Values form:</p>
+    <p id="demo"></p> -->
+
+    <script>
+    // const x = document.forms["frm1"];
+    // let text = "";
+
+    function upperCase() {
+        const x = document.getElementsById("fname");
+        x.value = x.value.toUpperCase();
+
+
+
+    // function upperCase() {
+    //     let x = document.querySelectorAll("input.info");
+    //     x.value = x.value.toUpperCase();
+
+
+        for (let i=0;i<x.length;i++) {
+            x[i].value = x[i].value.charAt(0).toUpperCase() + x.value.slice(1);
+        }
+
+        
+    }
+    
+    
+
+
+    // function capitalizeFirstLetter(str) {
+    
+    // }
+
+    </script>
+</body>
+</html>

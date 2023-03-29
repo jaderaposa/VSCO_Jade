@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capitalized Inputs</title>
+  </head>
+  <body>
+    <label for="input1">Input 1:</label>
+    <input type="text" id="input1">
+    <br>
+    <label for="input2">Input 2:</label>
+    <input type="text" id="input2">
+
+    <script>
+      // Get the input elements by their ID
+      const input1 = document.getElementById('input1');
+      const input2 = document.getElementById('input2');
+
+      // Add an event listener to each input element
+      input1.addEventListener('input', capitalizeFirstLetter);
+      input2.addEventListener('input', capitalizeFirstLetter);
+
+      // Define the function that will be called
+      // whenever an input is changed
+      function capitalizeFirstLetter(event) {
+        // Get the current value of the input
+        let inputValue = event.target.value;
+
+        // Capitalize the first letter using a loop
+        let capitalizedValue = '';
+        for (let i = 0; i < inputValue.length; i++) {
+          if (i === 0) {
+            capitalizedValue += inputValue[i].toUpperCase();
+          } else {
+            capitalizedValue += inputValue[i];
+          }
+        }
+
+        // Set the new capitalized value as the input's value
+        event.target.value = capitalizedValue;
+      }
+    </script>
+  </body>
+</html>
