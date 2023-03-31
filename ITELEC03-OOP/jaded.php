@@ -27,12 +27,12 @@ select {
     <h1 style="text-align:center;font-size:50px;">Calculator by Jaded</h1>
 
 
-    <div style="border: 2px solid black; padding: 20px; width: 90%; margin: auto;">
-        <form method="post">
+    <div style="border: 2px solid black; padding: 20px; width: 73%; margin: auto; background-color:skyblue;">
+        <form method="post" style="text-align:center;">
             <label>First Number:</label>
             <input type="number" id="one"name="one" value="<?php echo isset($_POST['one']) ? $_POST['one'] : ''; ?>" required>&nbsp;
             <label>Operation:</label>
-            <select name="operator" class="" required>
+            <select name="operator" class="" required style="width: 50px;">
                 <option value="">Select an option</option>
                 <option value="+" <?php if(isset($_POST['operator']) && $_POST['operator'] == '+') echo 'selected'; ?>>+</option>
                 <option value="-" <?php if(isset($_POST['operator']) && $_POST['operator'] == '-') echo 'selected'; ?>>-</option>
@@ -42,7 +42,7 @@ select {
             <label>Second Number:</label>
             <input type="number" id="two" name="two" value="<?php echo isset($_POST['two']) ? $_POST['two'] : ''; ?>" required>
             <label>&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="output" id="output" value="<?php echo isset($output) ? $output : ''; ?>" readonly><br><br><br><br>
+            <input type="text" name="output" id="output" value="<?php echo isset($output) ? $output : ''; ?>" style="width:20%;" readonly><br><br><br><br>
             <button type="submit" name="submit" style="display: block;margin: 0 auto;font-size: 20px;padding: 10px 20px;">Calculate</button>
         </form>
 
@@ -66,7 +66,7 @@ select {
                         break;
                     case '/':
                         if($two == 0){
-                            echo "<p style='color:red;'>Error: Division by zero.</p>";
+                            echo "<script>document.getElementById('output').value = 'Error Division by Zero';</script>";
                             break 2;
                         }
                         $output = $one / $two;
