@@ -8,7 +8,7 @@
     /* Neon pink */
     'ff7edb': "color: #f92aad; text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3; backface-visibility: hidden;",
     /* Yellow */
-    'fede5d': "color: #FFE806; text-shadow: 0 0 2px #efff00, 0 0 8px #efff00, 0 0 2px #000000, 0 0 2px #000000; backface-visibility: hidden;",
+    'fede5d': "color: #e3f172; text-shadow: 0 0 2px #100c0f, 0 0 10px #737c25, 0 0 35px #bffd02, 0 0 8px #dcf700; backface-visibility: hidden;",
     /* Green */
     '72f1b8': "color: #72F1B8; text-shadow: 0 0 2px #100c0f, 0 0 10px #257c55ff, 0 0 35px #02fd80, 0 0 8px #00f757; backface-visibility: hidden;",
     /* Blue */
