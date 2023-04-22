@@ -14,7 +14,7 @@ include('db_config.php');
   <body>
 
     <div class="title-bar">
-      <h1>Plant System</h1>
+      <h1>Plant Information System</h1>
     </div>
 
     <div class='sidebar'>
