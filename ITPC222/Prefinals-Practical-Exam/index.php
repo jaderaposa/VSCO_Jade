@@ -18,15 +18,21 @@ include('db_config.php');
     </div>
 
     <div class='sidebar'>
-      <div class='circle-img'>
-        <img src="images/jaded.jpg" alt="profile image">
+      <div class='profile'>
+        <div class='circle-img'>
+          <img src="images/jaded.jpg" alt="profile image">
+        </div>
+        <div class='profile-details'>
+          <h1>Jade Raposa</h1>
+          <h2>BSIT-2 Student</h2>
+          <h1>Divine Word College of Legazpi</h1>
+        </div>
       </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+
+      <div class='navbar'>
+        <h1>Navigations</h1>
+      </div>
+        
     </div>
 
 

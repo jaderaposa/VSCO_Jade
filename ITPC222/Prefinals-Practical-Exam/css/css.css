@@ -34,11 +34,9 @@ h1 {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 20px;
     box-sizing: border-box;
-    z-index: -1;
     top: 50px;
-    border: 1.5px solid black;
+    border: 1.5px solid #057303;
     border-top: 0;
     }
     .sidebar ul {
@@ -64,17 +62,51 @@ h1 {
 
 .circle-img {
     width: 100%;
-    height: 150px;
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15px;
     }
     .circle-img img {
         max-width: 100%;
-        height: auto;
+        width: 160px;
+        height: 160px;
         border-radius: 50%;
+        border: 2px solid black;
     }
 
+.navbar {
+    background-color: #057303;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    border-radius: 0;
+    }
+    .navbar h1 {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+.profile-details {
+    padding: 10px;
+    }
+    .profile-details h1,
+    .profile-details h2{
+        display: flex;
+        font-size: 15px;
+        justify-content: center;
+        margin: 5px;
+    }
+    .profile-details h1 {
+        font-size: 20px;
+    }
+    .profile-details h1:nth-child(3) {
+        font-size: 12px;
+    }
 
