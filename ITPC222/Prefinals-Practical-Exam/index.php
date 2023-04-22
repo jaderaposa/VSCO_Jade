@@ -7,16 +7,50 @@ include('db_config.php');
   <head>
     <title>Dynamic Dependent Select Box using jQuery, Ajax and PHP - Clue Mediator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="css/css.css" type="text/css"
+          rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="container">
+
+    <div class="title-bar">
+      <h1>Plant System</h1>
+    </div>
+
+    <div class='sidebar'>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="container">
       <h3>Dynamic Dependent Select Box - <a href="https://www.cluemediator.com" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
           <br />
       <form action="" method="post">
       <div class="col-md-4">
       
-      <!-- Country dropdown -->
+      
       <label for="regions">Region</label>
       <select class="form-control" id="regions">
         <option value="">Select Region</option>
@@ -34,14 +68,14 @@ include('db_config.php');
       </select>
               <br />
       
-      <!-- State dropdown -->
+      
       <label for="municipalities">Municipality</label>
       <select class="form-control" id="municipalities">
         <option value="">Select Municipality</option>
       </select>
               <br />
       
-      <!-- City dropdown -->
+      
       <label for="barangays">Barangay</label>
       <select class="form-control" id="barangays">
         <option value="">Select Barangay</option>
@@ -49,7 +83,7 @@ include('db_config.php');
       
       </div>
       </form>
-    </div>
+    </div> -->
   </body>
 </html>
 
