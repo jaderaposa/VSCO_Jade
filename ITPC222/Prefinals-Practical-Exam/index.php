@@ -18,6 +18,9 @@ include('db_config.php');
     </div>
 
     <div class='sidebar'>
+      <div class='circle-img'>
+        <img src="images/jaded.jpg" alt="profile image">
+      </div>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
