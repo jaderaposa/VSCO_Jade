@@ -71,7 +71,7 @@ include('db_config.php');
 
         <div class="registration">
           <div class="form">
-            <form>
+            <form method="post">
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
@@ -86,16 +86,20 @@ include('db_config.php');
                   <input type="text" id="lastname" name="lastname"><br>
                 </div>
               </div>
-
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username"><br>
-
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password"><br>
-
+              <div class="2nd-row" style="display:flex; gap:20px;">
+              <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br>
+              </div>
+              <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br>
+              </div>
+              <div>
               <label for="contact-number">Contact Number:</label>
-              <input type="tel" id="contact-number" name="contact-number"><br>
-
+              <input type="tel" id="contact-number" name="contact-number">
+              </div>
+              </div>
               <div class="sex">
                 <label for="sex">Sex:</label>
                 <input type="radio" id="male" name="sex" value="male">
@@ -104,8 +108,37 @@ include('db_config.php');
                 <label for="female">Female</label>
               </div>
 
-              <label for="birthday">Birthday:</label>
+              <div class="address">
+                <label for="regions">Region:&nbsp;</label>
+                <select class="form-control" id="regions">
+                  <option value="">Select Region</option>
+                  <?php
+                  $query = "SELECT * FROM regions";
+                  $result = $con->query($query);
+                  if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                  echo '<option value="'.$row['id'].'">'.$row['region_name'].'</option>';
+                  }
+                  }else{
+                  echo '<option value="">Region not available</option>';
+                  }
+                  ?>
+                </select>
+
+                <label for="municipalities">Municipality:&nbsp;</label>
+                <select class="form-control" id="municipalities">
+                  <option value="">Select Municipality</option>
+                </select>
+
+                <label for="barangays">Barangay:&nbsp;</label>
+                <select class="form-control" id="barangays">
+                  <option value="">Select Barangay</option>
+                </select>
+              </div>
+              <div>
+              <label style="margin-right:10px;" for="birthday">Birthday:</label>
               <input type="date" id="birthday" name="birthday">
+              </div>
               <div class="upload-image">
                 <label for="image">Upload Image:</label>
                 <input type="file" id="image" name="image">
@@ -149,48 +182,11 @@ include('db_config.php');
 
 
 
-    <!-- <div class="container">
-      <h3>Dynamic Dependent Select Box - <a href="https://www.cluemediator.com" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
-          <br />
-      <form action="" method="post">
-      <div class="col-md-4">
-      
-      
-      <label for="regions">Region</label>
-      <select class="form-control" id="regions">
-        <option value="">Select Region</option>
-        <?php
-        $query = "SELECT * FROM regions";
-        $result = $con->query($query);
-        if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-        echo '<option value="'.$row['id'].'">'.$row['region_name'].'</option>';
-        }
-        }else{
-        echo '<option value="">Region not available</option>';
-        }
-        ?>
-      </select>
-              <br />
-      
-      
-      <label for="municipalities">Municipality</label>
-      <select class="form-control" id="municipalities">
-        <option value="">Select Municipality</option>
-      </select>
-              <br />
-      
-      
-      <label for="barangays">Barangay</label>
-      <select class="form-control" id="barangays">
-        <option value="">Select Barangay</option>
-      </select>
-      
-      </div>
-      </form>
-    </div> -->
+    
   </body>
 </html>
+
+<script src="js/script.js"></script>
 
 <script type="text/javascript">
   $(document).ready(function(){

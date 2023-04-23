@@ -150,10 +150,14 @@ nav {
     }
     .container-title h1 {
         font-size: 25px;
+        text-align: center;
     }
 
 form {
     width: 100%;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
 }
 
 hr {
@@ -207,4 +211,36 @@ hr {
 .controls a i.fa-minus {
     margin-right: 5px;
 }
-    
+
+.address {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    }
+    .address select {
+        width: 100%;
+        margin-right: 10px;
+    }
+
+.registration input {
+    width: 150px;
+    }
+    .registration div {
+        margin-bottom: 10px;
+    }
+
+input#image {
+    width: 50%;
+}
+
+.sex input {
+    width: auto;
+    }
+    .sex label {
+        margin-right: 10px;
+    }
+
+.submit {
+    width: 150%;
+    text-align: right;
+}
