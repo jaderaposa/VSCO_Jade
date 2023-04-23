@@ -96,7 +96,24 @@ include('db_config.php');
               <label for="contact-number">Contact Number:</label>
               <input type="tel" id="contact-number" name="contact-number"><br>
 
-              <input type="submit" value="Submit">
+              <div class="sex">
+                <label for="sex">Sex:</label>
+                <input type="radio" id="male" name="sex" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="sex" value="female">
+                <label for="female">Female</label>
+              </div>
+
+              <label for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday">
+              <div class="upload-image">
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image">
+              </div>
+
+              <div class="submit">
+                <input type="submit" value="Submit">
+              </div>
             </form>
         </div>
       </div>
