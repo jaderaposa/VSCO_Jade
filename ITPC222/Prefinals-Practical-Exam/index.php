@@ -111,6 +111,18 @@ include('db_config.php');
                 <input type="file" id="image" name="image">
               </div>
 
+              <div class="wrapper">
+                <div id="survey_options">
+                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Name">
+                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Email">
+                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Another Field">
+                </div>
+                <div class="controls">
+                  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More</a>
+                  <a href="#" id="remove_fields"><i class="fa fa-minus"></i>Remove Field</a>
+                </div>
+              </div>
+
               <div class="submit">
                 <input type="submit" value="Submit">
               </div>
