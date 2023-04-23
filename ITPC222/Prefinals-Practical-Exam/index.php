@@ -69,11 +69,23 @@ include('db_config.php');
 
         <hr>
 
-        <div>
-          <div>
+        <div class="registration">
+          <div class="form">
             <form>
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name"><br>
+              <div class="name">
+                <div>
+                  <label for="firstname">First Name:</label>
+                  <input type="text" id="firstname" name="firstname">
+                </div>
+                <div>
+                  <label for="middlename">Middle Name:</label>
+                  <input type="text" id="middlename" name="middlename">
+                </div>
+                <div>
+                  <label for="lastname">Last Name:</label>
+                  <input type="text" id="lastname" name="lastname"><br>
+                </div>
+              </div>
 
               <label for="username">Username:</label>
               <input type="text" id="username" name="username"><br>
@@ -86,7 +98,6 @@ include('db_config.php');
 
               <input type="submit" value="Submit">
             </form>
-          </div>
         </div>
       </div>
     
