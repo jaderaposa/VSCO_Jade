@@ -7,6 +7,9 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: url('images/plant.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 h1 {
@@ -51,19 +54,16 @@ h1 {
         border-radius: 5px;
         transition: background-color 0.2s ease-in-out;
     }
-    .sidebar a:hover {
-        background-color: #555;
-    }
 
 .circle-img {
     width: 100%;
-    height: 180px;
+    height: 190px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     }
     .circle-img img {
         max-width: 100%;
@@ -71,7 +71,7 @@ h1 {
         height: 160px;
         border-radius: 50%;
         border: 2px solid black;
-        margin-top: 20px;
+        margin: 50px 0 50px 0;
     }
 
 .navbar {
@@ -91,7 +91,7 @@ h1 {
     }
 
 .profile-details {
-    padding: 10px;
+    padding: 10px 0 30px 0;
     }
     .profile-details h1,
     .profile-details h2{
@@ -113,20 +113,44 @@ nav {
     color: #fff;
     display: block;
     }
-    
     nav ul {
     list-style: none;
     margin: 0;
     padding: 10px;
     }
-    
     nav li {
     display: block;
-    margin-right: 10px;
     }
-    
     nav a {
     color: #fff;
     padding: 5px 10px;
     text-decoration: none;
     }
+    nav a:hover {
+        background-color: black;
+        color: white;
+    }
+    nav ul li a.active {
+        color: #057303;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+.container {
+    max-width: 1580px;
+    width: 100%;
+    margin: 50px 50px 0 300px;
+    padding: 20px 20px;
+    background-color: #D9D9D9;
+    border: 2px solid black;
+    }
+    .container h1 {
+        font-size: 30px;
+    }
+    .container-title h1 {
+        font-size: 25px;
+    }
+
+hr {
+    border: 1.5px solid black
+}
