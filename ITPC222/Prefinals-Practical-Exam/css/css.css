@@ -271,8 +271,23 @@ input#image {
 .dynamic-add\&remove-row {
     display: flex;
     font-size: 14px;
+    justify-content: center;
+    gap: 20%;
     }
     .dynamic-add\&remove-row h1{
         font-size: 14px;
         font-weight: bold;
     }
+
+.margin-5 {
+    margin-bottom: 5px;
+    }
+    .margin-5 input[type="text"] {
+        margin-right: 5px;
+    }
+
+.controls {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 5px 0;
+}

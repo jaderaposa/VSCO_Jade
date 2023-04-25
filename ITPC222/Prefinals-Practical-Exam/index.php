@@ -95,11 +95,11 @@ include('db_config.php');
               </div>
               <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br>
+                <input type="password" id="password" name="password" required><br>
               </div>
               <div>
               <label for="contact-number">Contact Number:</label>
-              <input type="tel" id="contact-number" name="contact-number">
+              <input type="tel" id="contact-number" name="contact-number" max="12" maxlength="12" required>
               </div>
               </div>
               <div class="sex">
@@ -154,16 +154,35 @@ include('db_config.php');
                   <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
                 </div>
                 <div class="controls">
-                  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i></a>
-                  <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
+                  <a href="#" id="add_more_fields1"><i class="fa fa-plus"></i></a>
+                  <a href="#" id="remove_fields1"><i class="fa fa-minus"></i></a>
                 </div>
               </div>
 
+              <div id="input-container" style="display: block;padding: 10px;">
+                <div class="input-row">
+                  <div style="display: flex;justify-content: space-between;align-items: baseline;margin-bottom:0;">
+                  <h1>Likes</h1>
+                  <button id="add-btn">Add Input</button>
+                  </div>
+                    <div class="margin-5" style="display:flex;margin-bottom: 5px;">
+                      <input type="text" name="input[]" placeholder="">
+                      <button class="remove-btn">Remove</button>
+                    </div>
+                    <div class="margin-5" style="display:flex;margin-bottom: 5px;">
+                      <input type="text" name="input[]" placeholder="">
+                      <button class="remove-btn">Remove</button>
+                    </div>
+
+
+                </div>
+              </div>
             </div>
+
               <div class="submit">
                 <span id="username-alert" style="color: red;float: left;"></span>
                 <span id="password-alert" style="color: red;float: left;"></span>
-                <input type="submit" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <input type="submit" id="submit-btn" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
               </div>
             </form>
         </div>
@@ -174,6 +193,26 @@ include('db_config.php');
 
 <!-- js script link -->
 <script src="js/script.js"></script>
+
+<!-- dynamic another -->
+<script src="js/daor.js"></script>
+
+<!-- password alert msg -->
+<script>
+  var passwordInput = document.getElementById("password");
+  var submitBtn = document.getElementById("submit-btn");
+
+  submitBtn.addEventListener("click", function() {
+    var password = passwordInput.value;
+
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters long.");
+      return;
+    }
+
+    // Do something else if input is valid...
+  });
+</script>
 
 <!-- check existing values -->
 <script>
