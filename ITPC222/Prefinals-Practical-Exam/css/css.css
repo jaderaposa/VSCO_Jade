@@ -35,7 +35,7 @@ h1 {
 .sidebar {
     height: 100vh;
     width: 250px;
-    background-color: #879f84;
+    background-color: transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -135,9 +135,8 @@ nav {
         color: white;
     }
     nav ul li a.active {
-        color: #057303;
-        font-weight: bold;
-        text-decoration: underline;
+        color: white;
+        background: black;
       }
 
 .container {
@@ -147,13 +146,15 @@ nav {
     padding: 20px 20px 0;
     background-color: #b5bbb5;
     color: black;
-    border: 2px solid black;
+    border: 3px solid black;
+    border-radius: 10px;
     position: absolute;
     left: 50%;
     margin-right: auto;
     margin-left: auto;
     transform: translateX(-35%);
     top: 10%;
+    box-shadow: 0px 0px 15px 4px black;
     }
     .container h1 {
         font-size: 30px;
@@ -165,7 +166,6 @@ nav {
 
 form {
     width: 100%;
-    display: inline-grid;
     justify-content: center;
     align-items: center;
 }
@@ -182,65 +182,67 @@ hr {
 
 .upload-image {
     display: flex;
+    align-items: center;
     }
     .upload-image input {
         margin-left: 10px;
     }
 
 .wrapper {
-    width: 400px;
-    margin: 40px auto;
+    width: 295px;
     padding: 10px;
-    border-radius: 5px;
-    background: white;
-    box-shadow: 0px 10px 40px 0px rgba(47,47,47,.1);
     }
     .wrapper input[type="text"]{
-        padding: 10px;
-        margin: 10px auto;
+        padding: 5px;
+        margin-bottom: 5px;
         display: block;
         border-radius: 5px;
-        border: 1px solid lightgrey;
-        background: none;
         width: 274px;
         color: black;
     }
+
 
 /* input[type="text"]:focus {
     outline: none;
 } */
 
 .controls {
-    width: 294px;
-    margin: 15px auto;
+    width: 100%;
 }
 
 #remove_fields {
     float: right;
 }
-.controls a i.fa-minus {
-    margin-right: 5px;
+.controls a i.fa-minus,
+.controls a i.fa-plus {
+    color:black;
 }
 
 .address {
     display: flex;
     align-items: center;
     width: 100%;
+    gap: 5px;
     }
     .address select {
         width: 100%;
-        margin-right: 10px;
+        margin-right: 20px;
+        color: black;
+        border: 2px solid black;
     }
+    
 
 .registration input {
     width: 150px;
+    padding: 5px;
+    border-radius: 5px;
     }
     .registration div {
         margin-bottom: 10px;
     }
 
 input#image {
-    width: 50%;
+    background: transparent;
 }
 
 .sex input {
@@ -251,6 +253,26 @@ input#image {
     }
 
 .submit {
-    width: 111%;
+    width: 100%;
     text-align: right;
+    }
+    .submit input {
+        border-radius: 5px;
+        color: white;
+        background: black;
+    }
+
+.registration input, 
+.registration select {
+    background: white;
+    border: 2px solid black;
 }
+
+.dynamic-add\&remove-row {
+    display: flex;
+    font-size: 14px;
+    }
+    .dynamic-add\&remove-row h1{
+        font-size: 14px;
+        font-weight: bold;
+    }

@@ -7,8 +7,8 @@ add_more_fields.onclick = function(){
   newField.setAttribute('type','text');
   newField.setAttribute('name','survey_options[]');
   newField.setAttribute('class','survey_options');
-  newField.setAttribute('siz',50);
-  newField.setAttribute('placeholder','Another Field');
+  newField.setAttribute('size',50);
+  newField.setAttribute('placeholder','Aanother Field');
   survey_options.appendChild(newField);
 }
 
@@ -18,3 +18,6 @@ remove_fields.onclick = function(){
     survey_options.removeChild(input_tags[(input_tags.length) - 1]);
   }
 }
+
+
+

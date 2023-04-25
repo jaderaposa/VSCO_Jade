@@ -10,6 +10,7 @@ include('db_config.php');
     <link href="css/css.css" type="text/css"
           rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ee7690777c.js" crossorigin="anonymous"></script>
   </head>
   <body>
 
@@ -141,48 +142,30 @@ include('db_config.php');
               </div>
               <div class="upload-image">
                 <label for="image">Upload Image:</label>
-                <input type="file" id="image" name="image">
+                <input type="file" id="image" name="image" style="width: 30%;border: none;">
               </div>
 
+            <div class="dynamic-add&remove-row">
               <div class="wrapper">
+                <h1>Hobbies:</h1>
                 <div id="survey_options">
-                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Name">
-                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Email">
-                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Another Field">
+                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
+                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
                 </div>
                 <div class="controls">
-                  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More</a>
-                  <a href="#" id="remove_fields"><i class="fa fa-minus"></i>Remove Field</a>
+                  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i></a>
+                  <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
                 </div>
               </div>
 
+            </div>
               <div class="submit">
-                <input type="submit" value="Submit">
+                <input type="submit" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
               </div>
             </form>
         </div>
       </div>
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   </body>
 </html>
 
