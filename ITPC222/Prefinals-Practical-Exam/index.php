@@ -76,21 +76,22 @@ include('db_config.php');
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
-                  <input type="text" id="firstname" name="firstname">
+                  <input type="text" id="firstname" name="firstname" pattern="[A-Za-z]+" required>
                 </div>
                 <div>
                   <label for="middlename">Middle Name:</label>
-                  <input type="text" id="middlename" name="middlename">
+                  <input type="text" id="middlename" name="middlename" pattern="[A-Za-z]+" required>
                 </div>
                 <div>
                   <label for="lastname">Last Name:</label>
-                  <input type="text" id="lastname" name="lastname"><br>
+                  <input type="text" id="lastname" name="lastname" pattern="[A-Za-z]+" required><br>
                 </div>
               </div>
               <div class="2nd-row" style="display:flex; gap:20px;">
               <div>
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username"><br>
+                <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required>
+                <br>
               </div>
               <div>
                 <label for="password">Password:</label>
@@ -160,7 +161,9 @@ include('db_config.php');
 
             </div>
               <div class="submit">
-                <input type="submit" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <span id="username-alert" style="color: red;float: left;"></span>
+                <span id="password-alert" style="color: red;float: left;"></span>
+                <input type="submit" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
               </div>
             </form>
         </div>
@@ -169,8 +172,82 @@ include('db_config.php');
   </body>
 </html>
 
+<!-- js script link -->
 <script src="js/script.js"></script>
 
+<!-- check existing values -->
+<script>
+function checkIfExists() {
+  var inputVal = document.getElementById("username").value;
+  var existingVals = ["jade", "glaiza", "jesus"]; // replace with your existing values
+  if (existingVals.includes(inputVal)) {
+    alert("Value already exists!");
+  } 
+}
+</script>
+ <!-- strong password -->
+<script>
+  var passwordInput = document.getElementById("password");
+  var passwordAlert = document.getElementById("password-alert");
+
+  passwordInput.addEventListener("input", function() {
+    var password = passwordInput.value;
+    var passwordStrength = calculatePasswordStrength(password);
+
+    if (passwordStrength < 3) {
+      passwordAlert.textContent = "Password must be at least 8 characters long and contain uppercase and lowercase letters, numbers, and special characters.";
+    } else {
+      passwordAlert.textContent = "";
+    }
+  });
+
+  function calculatePasswordStrength(password) {
+    var strength = 0;
+
+    // Check for length of at least 8 characters
+    if (password.length >= 8) {
+      strength++;
+    }
+
+    // Check for uppercase letters
+    if (/[A-Z]/.test(password)) {
+      strength++;
+    }
+
+    // Check for lowercase letters
+    if (/[a-z]/.test(password)) {
+      strength++;
+    }
+
+    // Check for numbers
+    if (/\d/.test(password)) {
+      strength++;
+    }
+
+    // Check for special characters
+    if (/[$-/:-?{-~!"^_`\[\]]/.test(password)) {
+      strength++;
+    }
+
+    return strength;
+  }
+</script>
+
+<!-- usernames alert -->
+<script>
+  var usernameInput = document.getElementById("username");
+  var usernameAlert = document.getElementById("username-alert");
+
+  usernameInput.addEventListener("input", function() {
+    if (usernameInput.value.length < 4) {
+      usernameAlert.textContent = "Username must be at least 4 characters long.";
+    } else {
+      usernameAlert.textContent = "";
+    }
+  });
+</script>
+
+<!-- dynamic dependent select box -->
 <script type="text/javascript">
   $(document).ready(function(){
     // Region dependent ajax

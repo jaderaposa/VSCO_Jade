@@ -8,7 +8,7 @@ add_more_fields.onclick = function(){
   newField.setAttribute('name','survey_options[]');
   newField.setAttribute('class','survey_options');
   newField.setAttribute('size',50);
-  newField.setAttribute('placeholder','Aanother Field');
+  newField.setAttribute('placeholder','');
   survey_options.appendChild(newField);
 }
 
