@@ -76,15 +76,15 @@ include('db_config.php');
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
-                  <input type="text" id="firstname" name="firstname" required oninput="checkInputs()">
+                  <input type="text" pattern="[A-Za-z]+" id="firstname myInput" name="firstname" required oninput="checkInputs()">
                 </div>
                 <div>
                   <label for="middlename">Middle Name:</label>
-                  <input type="text" id="middlename" name="middlename"  required oninput="checkInputs()">
+                  <input type="text" id="middlename" name="middlename myInput"  required oninput="checkInputs()">
                 </div>
                 <div>
                   <label for="lastname">Last Name:</label>
-                  <input type="text" id="lastname" name="lastname" required oninput="checkInputs()"><br>
+                  <input type="text" id="lastname" name="lastname myInput" required oninput="checkInputs()"><br>
                 </div>
               </div>
               <div class="2nd-row" style="display:flex; gap:20px;align-items: center;">
@@ -164,28 +164,6 @@ include('db_config.php');
                   <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
                 </div>
               </div>
-
-              <div id="input-container" style="display: block;padding: 10px;">
-                <div class="input-row" style="margin: 0;">
-                  <div style="display: flex;justify-content: space-between;align-items: baseline;margin-bottom:0;">
-                  <h1>Dislikes:</h1>
-                  <button id="add-btn" style="border: none;background: transparent;padding: 0;margin: 0;margin-right: 5%;"><i class="fa fa-plus"></i></button>
-                  </div>
-                    <div class="margin-5" style="display:flex;margin-bottom: 5px;">
-                      <input type="text" name="input[]" placeholder="">
-                      <button class="remove-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-minus"></i></button>
-                    </div>
-                    <div class="margin-5" style="display:flex;margin-bottom: 5px;">
-                      <input type="text" name="input[]" placeholder="">
-                      <button class="remove-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-minus"></i></button>
-                    </div>
-                    <div class="margin-5" style="display:flex;margin-bottom: 5px;">
-                      <input type="text" name="input[]" placeholder="">
-                      <button class="remove-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-minus"></i></button>
-                    </div>
-
-                </div>
-              </div>
             </div>
 
               <div class="submit">
@@ -244,11 +222,29 @@ include('db_config.php');
   </body>
 </html>
 
+<!-- prevent number -->
+<script>
+const firstNameInput = document.getElementById('firstname');
+  const middleNameInput = document.getElementById('middlename');
+  const lastNameInput = document.getElementById('lastname');
+
+  firstNameInput.addEventListener('input', restrictNonText);
+  middleNameInput.addEventListener('input', restrictNonText);
+  lastNameInput.addEventListener('input', restrictNonText);
+
+  function restrictNonText(event) {
+    const regex = /[^a-zA-Z]/g; // allow only text characters
+    const inputText = event.target.value;
+    const sanitizedText = inputText.replace(regex, '');
+    event.target.value = sanitizedText;
+  }
+</script>
+
 <!-- js script link -->
 <script src="js/script.js"></script>
 
 <!-- dynamic another -->
-<script src="js/daor.js"></script>
+<!-- <script src="js/daor.js"></script> -->
 
 
 
