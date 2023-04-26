@@ -70,7 +70,7 @@ include('db_config.php');
 
         <hr>
 
-        <div class="registration">
+        <div class="registration" style="justify-content: center;align-items: center;display: flex;">
           <div class="form">
             <form method="post">
               <div class="name">
