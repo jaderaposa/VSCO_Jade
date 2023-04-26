@@ -72,7 +72,7 @@ include('db_config.php');
 
         <div class="registration" style="justify-content: center;align-items: center;display: flex;">
           <div class="form">
-            <form method="post">
+            <form method="post" id="account-form" class="my-form">
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
@@ -186,9 +186,14 @@ include('db_config.php');
               <div class="submit">
                 <span id="username-alert" style="color: red;float: left;"></span>
                 <span id="password-alert" style="color: red;float: left;"></span>
-                <input type="submit" id="submit-btn" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <input type="submit" id="submit-btn create-account-btn" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
               </div>
+
+              <div class="output"></div>
             </form>
+
+            
+
         </div>
       </div>
 
@@ -200,6 +205,34 @@ include('db_config.php');
 
 <!-- dynamic another -->
 <script src="js/daor.js"></script>
+
+<!-- display data -->
+<script>
+// const form = document.getElementByClass('my-form');
+// const outputDiv = document.getElementById('output');
+
+// form.addEventListener('submit', function(event) {
+//   event.preventDefault();
+
+//   // Get the values of the name and email fields
+//   const name = document.getElementById('firstname').value;
+//   const username = document.getElementById('username').value;
+
+//   // Create a new element to display the data
+//   const p = document.createElement('p');
+
+//   // Set the text content of the new element to the name and email values
+//   p.textContent = `Name: ${name}, Username: ${username}`;
+
+//   // Append the new element to the output div
+//   outputDiv.appendChild(p);
+
+//   // Reset the form
+//   form.reset();
+// });
+
+
+</script>
 
 <!-- password alert msg -->
 <script>
@@ -216,6 +249,43 @@ include('db_config.php');
 
     // Do something else if input is valid...
   });
+</script>
+
+<!-- dynamic alert msg -->
+<script>
+ const form = document.getElementById('account-form');
+const createAccountBtn = document.getElementById('create-account-btn');
+
+// Add event listener for submit event on the form
+form.addEventListener('submit', function(event) {
+  // Prevent default form submission behavior
+  event.preventDefault();
+
+  // Get the values of the username and password fields
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Simulate account creation
+  const accountCreated = true;
+
+  if (accountCreated) {
+    // Define the message and type of alert
+    const message = `Account ${username} has been successfully created!`;
+    const type = "success";
+
+    // Create a new div element for the alert
+    const alertDiv = document.createElement('div');
+
+    // Add classes to the alert div based on the alert type
+    alertDiv.classList.add('alert', `alert-${type}`);
+
+    // Set the text content of the alert div to the message
+    alertDiv.textContent = message;
+
+    // Insert the alert div after the form in the DOM
+    form.insertAdjacentElement('afterend', alertDiv);
+  }
+});
 </script>
 
 <!-- check existing values -->
