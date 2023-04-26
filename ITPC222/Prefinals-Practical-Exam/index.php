@@ -152,6 +152,7 @@ include('db_config.php');
                 <div id="survey_options">
                   <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
                   <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
+                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
                 </div>
                 <div class="controls">
                   <a href="#" id="add_more_fields"><i class="fa fa-plus"></i></a>
@@ -163,17 +164,20 @@ include('db_config.php');
                 <div class="input-row">
                   <div style="display: flex;justify-content: space-between;align-items: baseline;margin-bottom:0;">
                   <h1>Likes</h1>
-                  <button id="add-btn">Add Input</button>
+                  <button id="add-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-plus"></i></button>
                   </div>
                     <div class="margin-5" style="display:flex;margin-bottom: 5px;">
                       <input type="text" name="input[]" placeholder="">
-                      <button class="remove-btn">Remove</button>
+                      <button class="remove-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-minus"></i></button>
                     </div>
                     <div class="margin-5" style="display:flex;margin-bottom: 5px;">
                       <input type="text" name="input[]" placeholder="">
-                      <button class="remove-btn">Remove</button>
+                      <button class="remove-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-minus"></i></button>
                     </div>
-
+                    <div class="margin-5" style="display:flex;margin-bottom: 5px;">
+                      <input type="text" name="input[]" placeholder="">
+                      <button class="remove-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-minus"></i></button>
+                    </div>
 
                 </div>
               </div>

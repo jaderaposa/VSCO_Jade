@@ -13,10 +13,12 @@ addBtn.addEventListener('click', () => {
   newInput.setAttribute('type', 'text');
   newInput.setAttribute('name', 'input[]');
   newInput.setAttribute('placeholder', '');
+  
 
   // Create new "Remove" button
   const removeBtn = document.createElement('button');
   removeBtn.classList.add('remove-btn');
+  newInput.setAttribute('style', 'border: none;background: transparent;padding: 0;margin: 0;');
   removeBtn.textContent = 'Remove';
 
   // Add event listener to "Remove" button
