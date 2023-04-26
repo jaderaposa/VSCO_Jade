@@ -70,7 +70,7 @@ include('db_config.php');
 
         <hr>
 
-        <div class="registration" style="justify-content: center;align-items: center;display: flex;">
+        <div class="registration" style="width:100%;">
           <div class="form">
             <form method="post" id="account-form" class="my-form">
               <div class="name">
@@ -139,16 +139,16 @@ include('db_config.php');
               </div>
               <div>
               <label style="margin-right:10px;" for="birthday">Birthday:</label>
-              <input type="date" id="birthday" name="birthday">
+              <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2018-12-31">
               </div>
               <div class="upload-image">
                 <label for="image">Upload Image:</label>
-                <input type="file" id="image" name="image" style="width: 30%;border: none;">
+                <input type="file" id="image" name="image" style="width: 30%;border: none;" accept="image/*">
               </div>
 
             <div class="dynamic-add&remove-row">
               <div class="wrapper">
-                <h1>Hobbies:</h1>
+                <h1>Likes:</h1>
                 <div id="survey_options">
                   <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
                   <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
@@ -163,8 +163,8 @@ include('db_config.php');
               <div id="input-container" style="display: block;padding: 10px;">
                 <div class="input-row" style="margin: 0;">
                   <div style="display: flex;justify-content: space-between;align-items: baseline;margin-bottom:0;">
-                  <h1>Likes</h1>
-                  <button id="add-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-plus"></i></button>
+                  <h1>Dislikes:</h1>
+                  <button id="add-btn" style="border: none;background: transparent;padding: 0;margin: 0;margin-right: 5%;"><i class="fa fa-plus"></i></button>
                   </div>
                     <div class="margin-5" style="display:flex;margin-bottom: 5px;">
                       <input type="text" name="input[]" placeholder="">
@@ -186,10 +186,31 @@ include('db_config.php');
               <div class="submit">
                 <span id="username-alert" style="color: red;float: left;"></span>
                 <span id="password-alert" style="color: red;float: left;"></span>
-                <input type="submit" id="submit-btn create-account-btn" disabled onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <input type="submit" id="submit-btn create-account-btn" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <!-- <button onclick="displayData()">Submit</button> -->
               </div>
 
             </form>
+
+            <script>
+            // function displayData() {
+            //   var firstname = document.getElementById("firstname").value;
+            //   var middlename = document.getElementById("middlename").value;
+            //   var lastname = document.getElementById("lastname").value;
+            //   var username = document.getElementById("username").value;
+            //   var contact = document.getElementById("contact-number").value;
+            //   var email = document.getElementByName("sex").value;
+            //   var email = document.getElementById("regions").value;
+            //   var email = document.getElementById("municipalities").value;
+            //   var email = document.getElementById("email").value;
+            //   var email = document.getElementById("email").value;
+
+            //   var output = document.createElement("p");
+            //   output.innerHTML = "Name: " + name + "<br>Email: " + email;
+
+            //   document.body.appendChild(output);
+            // }
+            </script>
 
             
 
@@ -205,18 +226,20 @@ include('db_config.php');
 <!-- dynamic another -->
 <script src="js/daor.js"></script>
 
+
+
 <!-- disabled submit button -->
 <script>
-//   $('form').on('input', function() {
-//   const $submitButton = $(this).find('input[type="submit"]');
-//   const isValid = /* check if form is valid */;
+  // const inputField = document.getElementById("input-field");
+  // const submitBtn = document.getElementById("submit-btn");
 
-//   if (isValid) {
-//     $submitButton.prop('disabled', false);
-//   } else {
-//     $submitButton.prop('disabled', true);
-//   }
-// });
+  // inputField.addEventListener("input", () => {
+  //   if (inputField.value.trim() === "") {
+  //     submitBtn.disabled = true;
+  //   } else {
+  //     submitBtn.disabled = false;
+  //   }
+  // });
 </script>
 
 <!-- display data -->
@@ -307,7 +330,7 @@ function checkIfExists() {
   var inputVal = document.getElementById("username").value;
   var existingVals = ["jade", "glaiza", "jesus"]; // replace with your existing values
   if (existingVals.includes(inputVal)) {
-    alert("Value already exists!");
+    alert("Username already exists!");
   } 
 }
 </script>
