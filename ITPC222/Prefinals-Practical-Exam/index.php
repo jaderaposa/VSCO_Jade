@@ -76,21 +76,21 @@ include('db_config.php');
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
-                  <input type="text" id="firstname" name="firstname" required>
+                  <input type="text" id="firstname" name="firstname" required oninput="checkInputs()">
                 </div>
                 <div>
                   <label for="middlename">Middle Name:</label>
-                  <input type="text" id="middlename" name="middlename"  required>
+                  <input type="text" id="middlename" name="middlename"  required oninput="checkInputs()">
                 </div>
                 <div>
                   <label for="lastname">Last Name:</label>
-                  <input type="text" id="lastname" name="lastname" required><br>
+                  <input type="text" id="lastname" name="lastname" required oninput="checkInputs()"><br>
                 </div>
               </div>
               <div class="2nd-row" style="display:flex; gap:20px;align-items: center;">
               <div>
               <label for="contact-number">Contact Number:</label>
-              <input type="tel" id="contact-number" name="contact-number" max="12" maxlength="12" required>
+              <input type="tel" id="contact-number" name="contact-number" max="12" maxlength="12" required oninput="checkInputs()">
               </div>
               <div class="sex">
                 <label for="sex">Sex:</label>
@@ -136,12 +136,12 @@ include('db_config.php');
               <div class="2nd-row" style="display:flex; gap:20px;">
               <div>
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required>
+                <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required oninput="checkInputs()">
                 <br>
               </div>
               <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
+                <input type="password" id="password" name="password" required oninput="checkInputs()"><br>
               </div>
               </div>
 
@@ -196,6 +196,25 @@ include('db_config.php');
               </div>
 
             </form>
+
+            <script>
+              function checkInputs() {
+                // Get all required input fields
+                const inputs = document.querySelectorAll('input[required]');
+
+                // Check if all required input fields are filled
+                let isFilled = true;
+                inputs.forEach(input => {
+                  if (!input.value) {
+                    isFilled = false;
+                  }
+                });
+
+                // Enable or disable the submit button based on whether all required fields are filled
+                const submitButton = document.getElementById('submit');
+                submitButton.disabled = !isFilled;
+              }
+            </script>
 
             <script>
             // function displayData() {
