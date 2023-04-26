@@ -161,7 +161,7 @@ include('db_config.php');
               </div>
 
               <div id="input-container" style="display: block;padding: 10px;">
-                <div class="input-row">
+                <div class="input-row" style="margin: 0;">
                   <div style="display: flex;justify-content: space-between;align-items: baseline;margin-bottom:0;">
                   <h1>Likes</h1>
                   <button id="add-btn" style="border: none;background: transparent;padding: 0;margin: 0;"><i class="fa fa-plus"></i></button>

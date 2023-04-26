@@ -14,7 +14,7 @@ add_more_fields.onclick = function(){
 
 remove_fields.onclick = function(){
   var input_tags = survey_options.getElementsByTagName('input');
-  if(input_tags.length > 2) {
+  if(input_tags.length > 3) {
     survey_options.removeChild(input_tags[(input_tags.length) - 1]);
   }
 }

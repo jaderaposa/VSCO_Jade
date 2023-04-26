@@ -284,6 +284,7 @@ input#image {
     }
     .margin-5 input[type="text"] {
         margin-right: 5px;
+        width: 274px;
     }
 
 .controls {
