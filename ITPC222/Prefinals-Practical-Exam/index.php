@@ -186,10 +186,9 @@ include('db_config.php');
               <div class="submit">
                 <span id="username-alert" style="color: red;float: left;"></span>
                 <span id="password-alert" style="color: red;float: left;"></span>
-                <input type="submit" id="submit-btn create-account-btn" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <input type="submit" id="submit-btn create-account-btn" disabled onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
               </div>
 
-              <div class="output"></div>
             </form>
 
             
@@ -205,6 +204,20 @@ include('db_config.php');
 
 <!-- dynamic another -->
 <script src="js/daor.js"></script>
+
+<!-- disabled submit button -->
+<script>
+//   $('form').on('input', function() {
+//   const $submitButton = $(this).find('input[type="submit"]');
+//   const isValid = /* check if form is valid */;
+
+//   if (isValid) {
+//     $submitButton.prop('disabled', false);
+//   } else {
+//     $submitButton.prop('disabled', true);
+//   }
+// });
+</script>
 
 <!-- display data -->
 <script>
