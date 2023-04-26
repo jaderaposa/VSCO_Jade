@@ -76,15 +76,15 @@ include('db_config.php');
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
-                  <input type="text" id="firstname" name="firstname" pattern="[A-Za-z]+" required>
+                  <input type="text" id="firstname" name="firstname" required>
                 </div>
                 <div>
                   <label for="middlename">Middle Name:</label>
-                  <input type="text" id="middlename" name="middlename" pattern="[A-Za-z]+" required>
+                  <input type="text" id="middlename" name="middlename"  required>
                 </div>
                 <div>
                   <label for="lastname">Last Name:</label>
-                  <input type="text" id="lastname" name="lastname" pattern="[A-Za-z]+" required><br>
+                  <input type="text" id="lastname" name="lastname" required><br>
                 </div>
               </div>
               <div class="2nd-row" style="display:flex; gap:20px;">
@@ -154,8 +154,8 @@ include('db_config.php');
                   <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
                 </div>
                 <div class="controls">
-                  <a href="#" id="add_more_fields1"><i class="fa fa-plus"></i></a>
-                  <a href="#" id="remove_fields1"><i class="fa fa-minus"></i></a>
+                  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i></a>
+                  <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
                 </div>
               </div>
 
