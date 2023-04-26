@@ -15,7 +15,7 @@ include('db_config.php');
   <body>
 
     <div class="title-bar">
-      <h1>Plant Information System</h1>
+      <h1 style="font-size: 38px;color: white;-webkit-text-stroke: 1px black;text-stroke: 1px black;">Plant Information System</h1>
     </div>
 
     <div class='sidebar'>
@@ -31,7 +31,7 @@ include('db_config.php');
       </div>
 
       <div class='navbar'>
-        <h1>Navigations</h1>
+        <h1 class="outlined">Navigations</h1>
       </div>
 
       <div>
@@ -87,20 +87,10 @@ include('db_config.php');
                   <input type="text" id="lastname" name="lastname" required><br>
                 </div>
               </div>
-              <div class="2nd-row" style="display:flex; gap:20px;">
-              <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required>
-                <br>
-              </div>
-              <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
-              </div>
+              <div class="2nd-row" style="display:flex; gap:20px;align-items: center;">
               <div>
               <label for="contact-number">Contact Number:</label>
               <input type="tel" id="contact-number" name="contact-number" max="12" maxlength="12" required>
-              </div>
               </div>
               <div class="sex">
                 <label for="sex">Sex:</label>
@@ -108,6 +98,11 @@ include('db_config.php');
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="sex" value="female">
                 <label for="female">Female</label>
+              </div>
+              <div>
+              <label style="margin-right:10px;" for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2018-12-31" oninvalid="this.setCustomValidity('Please enter a valid birthdate')">
+              </div>
               </div>
 
               <div class="address">
@@ -137,10 +132,20 @@ include('db_config.php');
                   <option value="">Select Barangay</option>
                 </select>
               </div>
+
+              <div class="2nd-row" style="display:flex; gap:20px;">
               <div>
-              <label style="margin-right:10px;" for="birthday">Birthday:</label>
-              <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2018-12-31">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required>
+                <br>
               </div>
+              <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+              </div>
+              </div>
+
+              
               <div class="upload-image">
                 <label for="image">Upload Image:</label>
                 <input type="file" id="image" name="image" style="width: 30%;border: none;" accept="image/*">
