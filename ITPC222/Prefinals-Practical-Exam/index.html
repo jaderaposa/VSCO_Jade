@@ -90,7 +90,7 @@ include('db_config.php');
               <div class="2nd-row" style="display:flex; gap:20px;align-items: center;">
               <div>
               <label for="contact-number">Contact Number:</label>
-              <input type="number" id="contact-number" name="contact-number" maxlength="11" required>
+              <input type="number" id="contact-number" name="contact-number" maxlength="12" required>
               </div>
               <div class="sex">
                 <label for="sex">Sex:</label>
@@ -246,6 +246,16 @@ include('db_config.php');
   </body>
 </html>
 
+<!-- prevent from typing more than 12 numbers in the input field -->
+<script>
+  const myInput = document.getElementById('contact-number');
+  
+  myInput.addEventListener('input', () => {
+    if (myInput.value.length > 12) {
+      myInput.value = myInput.value.slice(0, 12);
+    }
+  });
+</script>
 
 <!-- disabled submit -->
 <!-- <script>
