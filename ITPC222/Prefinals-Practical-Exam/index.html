@@ -76,32 +76,32 @@ include('db_config.php');
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
-                  <input type="text" pattern="[A-Za-z]+" id="firstname myInput" name="firstname" required oninput="checkInputs()">
+                  <input type="text" pattern="[A-Za-z]+" id="firstname" name="firstname" required oninput="checkInputs()">
                 </div>
                 <div>
                   <label for="middlename">Middle Name:</label>
-                  <input type="text" id="middlename" name="middlename myInput"  required oninput="checkInputs()">
+                  <input type="text" id="middlename" name="middlename"  required oninput="checkInputs()">
                 </div>
                 <div>
                   <label for="lastname">Last Name:</label>
-                  <input type="text" id="lastname" name="lastname myInput" required oninput="checkInputs()"><br>
+                  <input type="text" id="lastname" name="lastname" required oninput="checkInputs()"><br>
                 </div>
               </div>
               <div class="2nd-row" style="display:flex; gap:20px;align-items: center;">
               <div>
               <label for="contact-number">Contact Number:</label>
-              <input type="tel" id="contact-number" name="contact-number" max="12" maxlength="12" required oninput="checkInputs()">
+              <input type="number" id="contact-number" name="contact-number" maxlength="11" required oninput="checkInputs()">
               </div>
               <div class="sex">
                 <label for="sex">Sex:</label>
-                <input type="radio" id="male" name="sex" value="male">
+                <input type="radio" id="male" name="sex" value="male" required>
                 <label for="male">Male</label>
-                <input type="radio" id="female" name="sex" value="female">
+                <input type="radio" id="female" name="sex" value="female" required>
                 <label for="female">Female</label>
               </div>
               <div>
               <label style="margin-right:10px;" for="birthday">Birthday:</label>
-              <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2018-12-31" oninvalid="this.setCustomValidity('Please enter a valid birthdate')">
+              <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2019-12-31" oninvalid="this.setCustomValidity('Please enter a valid birthdate')">
               </div>
               </div>
 
@@ -109,7 +109,7 @@ include('db_config.php');
                 <label for="regions">Region:&nbsp;</label>
                 <select class="form-control" id="regions">
                   <option value="">Select Region</option>
-                  <?php
+                  <!-- <?php
                   $query = "SELECT * FROM regions";
                   $result = $con->query($query);
                   if ($result->num_rows > 0) {
@@ -118,7 +118,7 @@ include('db_config.php');
                   }
                   }else{
                   echo '<option value="">Region not available</option>';
-                  }
+                  } -->
                   ?>
                 </select>
 
@@ -152,30 +152,37 @@ include('db_config.php');
               </div>
 
             <div class="dynamic-add&remove-row">
-              <div class="wrapper">
-                <h1>Likes:</h1>
-                <div id="survey_options">
-                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
-                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
-                  <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="">
+              <div class="wrapper" style="border:2px solid black;width:auto;">
+                <h1 style="font-size: 2rem;text-align: center;">What Do You Like And Not Like About Yourself?</h1>
+                <hr style="margin-bottom: 1rem;">
+                <div id="inputs-wrapper" style="display:flex;gap:2rem;justify-content: center;">
+                  <div style="text-align: center;">
+                    <h2>Likes</h2>
+                    <input type="text" class="num-input">
+                  </div>
+                  <div style="text-align: center;">
+                    <h2>Unlikes</h2>
+                    <input type="text" class="num-input">
+                  </div>
                 </div>
-                <div class="controls">
-                  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i></a>
-                  <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
-                </div>
+                <br><br>
+                <div style="justify-content: space-between;display: flex;">
+                  <button onclick="add()">Add 2 Inputs</button>
+                  <button onclick="remove()">Remove 2 Inputs</button>
+                </div>         
               </div>
             </div>
 
               <div class="submit">
                 <span id="username-alert" style="color: red;float: left;"></span>
                 <span id="password-alert" style="color: red;float: left;"></span>
-                <input type="submit" id="submit-btn create-account-btn" onclick="checkIfExists()" value="REGISTER" style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;">
+                <button type="submit" id="submit-btn submitBtn create-account-btn" onclick="checkIfExists()" disabled style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;border-radius:5px;"">REGISTER</button>
                 <!-- <button onclick="displayData()">Submit</button> -->
               </div>
 
             </form>
 
-            <script>
+            <!-- <script>
               function checkInputs() {
                 // Get all required input fields
                 const inputs = document.querySelectorAll('input[required]');
@@ -192,7 +199,7 @@ include('db_config.php');
                 const submitButton = document.getElementById('submit');
                 submitButton.disabled = !isFilled;
               }
-            </script>
+            </script> -->
 
             <script>
             // function displayData() {
@@ -222,26 +229,53 @@ include('db_config.php');
   </body>
 </html>
 
+
+<!-- disabled submit -->
+<!-- <script>
+  const input1 = document.getElementById("firstname");
+  const input2 = document.getElementById("middlename");
+  const input3 = document.getElementById("lastname");
+  const input4 = document.getElementById("contact-number");
+  const input5 = document.getElementById("username");
+  const input6 = document.getElementById("password");
+  const submit = document.getElementById("submitBtn");
+
+  // Add event listeners to input fields to check if they are filled
+  input1.addEventListener("input", validateInputs);
+  input2.addEventListener("input", validateInputs);
+  input3.addEventListener("input", validateInputs);
+  input4.addEventListener("input", validateInputs);
+  input5.addEventListener("input", validateInputs);
+  input6.addEventListener("input", validateInputs);
+
+  function validateInputs() {
+    if (input1.value && input2.value && input3.value && input4.value && input5.value && input6.value) {
+      submit.disabled = false;
+    } else {
+      submit.disabled = true;
+    }
+  }
+</script> -->
+
 <!-- prevent number -->
 <script>
-const firstNameInput = document.getElementById('firstname');
-  const middleNameInput = document.getElementById('middlename');
-  const lastNameInput = document.getElementById('lastname');
 
-  firstNameInput.addEventListener('input', restrictNonText);
-  middleNameInput.addEventListener('input', restrictNonText);
-  lastNameInput.addEventListener('input', restrictNonText);
+    const firstNameInput = document.getElementById('firstname');
+    const middleNameInput = document.getElementById('middlename');
+    const lastNameInput = document.getElementById('lastname');
+  
+    firstNameInput.addEventListener('input', restrictNonText);
+    middleNameInput.addEventListener('input', restrictNonText);
+    lastNameInput.addEventListener('input', restrictNonText);
+  
+    function restrictNonText(event) {
+      const regex = /[^a-zA-Z]/g; // allow only text characters
+      const inputText = event.target.value;
+      const sanitizedText = inputText.replace(regex, '');
+      event.target.value = sanitizedText;
+    }
+  </script>
 
-  function restrictNonText(event) {
-    const regex = /[^a-zA-Z]/g; // allow only text characters
-    const inputText = event.target.value;
-    const sanitizedText = inputText.replace(regex, '');
-    event.target.value = sanitizedText;
-  }
-</script>
-
-<!-- js script link -->
-<script src="js/script.js"></script>
 
 <!-- dynamic another -->
 <!-- <script src="js/daor.js"></script> -->
@@ -289,6 +323,62 @@ const firstNameInput = document.getElementById('firstname');
 
 
 </script>
+
+ <!-- add or remove -->
+<script>
+  // Get the inputs wrapper and initial input elements
+  const inputsWrapper = document.getElementById('inputs-wrapper');
+  const numInputs = document.querySelectorAll('.num-input');
+  
+  // Define the add and remove functions
+  function add() {
+    // Create two new input elements and append them to the wrapper
+    const newInput1 = document.createElement('input');
+    newInput1.type = 'number';
+    newInput1.className = 'num-input';
+    newInput1.value = '0';
+    inputsWrapper.appendChild(newInput1);
+    
+    const newInput2 = document.createElement('input');
+    newInput2.type = 'number';
+    newInput2.className = 'num-input';
+    newInput2.value = '0';
+    inputsWrapper.appendChild(newInput2);
+  }
+  
+  function remove() {
+    // Remove the last two input elements from the wrapper if there are any
+    const numInputs = document.querySelectorAll('.num-input');
+    if (numInputs.length > 2) {
+      numInputs[numInputs.length - 1].remove();
+      numInputs[numInputs.length - 2].remove();
+    }
+  }
+</script>
+
+
+<!-- <script>
+var survey_options = document.getElementById('survey_options');
+var add_more_fields = document.getElementById('add_more_fields');
+var remove_fields = document.getElementById('remove_fields');
+
+add_more_fields.onclick = function(){
+  var newField = document.createElement('input');
+  newField.setAttribute('type','text');
+  newField.setAttribute('name','survey_options[]');
+  newField.setAttribute('class','survey_options');
+  newField.setAttribute('size',50);
+  newField.setAttribute('placeholder','');
+  survey_options.appendChild(newField);
+}
+
+remove_fields.onclick = function(){
+  var input_tags = survey_options.getElementsByTagName('input');
+  if(input_tags.length > 3) {
+    survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+  }
+}
+</script> -->
 
 <!-- password alert msg -->
 <script>

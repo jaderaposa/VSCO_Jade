@@ -273,6 +273,7 @@ input#image {
     font-size: 14px;
     justify-content: center;
     gap: 20%;
+    margin-top: 3rem;
     }
     .dynamic-add\&remove-row h1{
         font-size: 14px;
