@@ -8,6 +8,7 @@ body {
     background: linear-gradient(0deg, rgba(1,121,111,1) 0%, rgba(141,182,0,1) 100%);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -345,3 +346,8 @@ input:invalid {
     font-size: 2rem;
     font-weight: bold;
 }
+
+button:disabled {
+    opacity: 0.5;
+  
+  }
