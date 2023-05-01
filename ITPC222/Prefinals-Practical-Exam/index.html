@@ -512,13 +512,22 @@ form.addEventListener('submit', function(event) {
 
 <!-- check existing values -->
 <script>
-function checkIfExists() {
-  var inputVal = document.getElementById("username").value;
-  var existingVals = ["jade", "glaiza", "jesus"]; // replace with your existing values
-  if (existingVals.includes(inputVal)) {
-    alert("Username already exists!");
-  } 
-}
+// create an array of existing usernames
+const existingUsernames = ["jade", "glaiza", "jesus"];
+
+// get the input field element
+const userInput = document.getElementById("username");
+
+// add an event listener to the input field
+userInput.addEventListener("input", function() {
+  // get the current value of the input field
+  const inputValue = this.value;
+  
+  // check if the input value matches an existing username
+  if (existingUsernames.includes(inputValue)) {
+    alert("Username already exists. Please choose another one.");
+  }
+});
 </script>
  <!-- strong password -->
 <script>
