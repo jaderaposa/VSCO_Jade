@@ -328,3 +328,20 @@ input:invalid {
     color: red;
     font-size: smaller;
   }
+
+.input-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+/* Style for the input elements */
+.num-input {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.fontnga h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}

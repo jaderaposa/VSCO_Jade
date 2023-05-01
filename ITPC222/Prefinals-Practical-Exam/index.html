@@ -151,9 +151,26 @@ include('db_config.php');
                 <input type="file" id="image" name="image" style="width: 30%;border: none;" accept="image/*">
               </div>
 
-            <div class="dynamic-add&remove-row">
-              <div class="wrapper" style="border:2px solid black;width:auto;">
-                <h1 style="font-size: 2rem;text-align: center;">What Do You Like And Not Like About Yourself?</h1>
+            <div class="dynamic-add&remove-row" style="margin-top: 5rem;">
+              <div class="wrapper" style="border: 2px solid black;text-align: center;width: 60%;border-radius: 1.5rem;">
+                <h1 style="font-size: 2.5rem;">What are the things you like and not like about yourself?</h1>
+                <div class="fontnga" style="display: flex; justify-content:center;gap: 20%;">
+                  <h2>Likes</h2>
+                  <h2>Dislikes</h2>
+                </div>
+                <div id="inputs-wrapper" style="justify-content: center;display:grid;">
+                  <div class="input-wrapper">
+                    <input style="width: 150px;" type="text" class="num-input">
+                    <input style="width: 150px;" type="text" class="num-input">
+                </div>
+                  <!-- Input elements will be added dynamically here -->
+                </div>
+                <div style="justify-content: space-between; display: flex;">
+                  <button style="border: none;background: none;" onclick="add()"><i class="fa fa-plus"></i></button>
+                  <button style="border: none;background: none;" onclick="remove()"><i class="fa fa-minus"></i></button>
+                </div>
+          
+                <!-- <h1 style="font-size: 2rem;text-align: center;">What Do You Like And Not Like About Yourself?</h1>
                 <hr style="margin-bottom: 1rem;">
                 <div id="inputs-wrapper" style="display:flex;gap:2rem;justify-content: center;">
                   <div style="text-align: center;">
@@ -169,9 +186,9 @@ include('db_config.php');
                 <div style="justify-content: space-between;display: flex;">
                   <button onclick="add()">Add 2 Inputs</button>
                   <button onclick="remove()">Remove 2 Inputs</button>
-                </div>         
-              </div>
+                </div>          -->
             </div>
+          </div>
 
               <div class="submit">
                 <span id="username-alert" style="color: red;float: left;"></span>
@@ -297,66 +314,73 @@ include('db_config.php');
 </script>
 
 <!-- display data -->
-<script>
-// const form = document.getElementByClass('my-form');
-// const outputDiv = document.getElementById('output');
+<!-- <script>
+const form = document.getElementByClass('my-form');
+const outputDiv = document.getElementById('output');
 
-// form.addEventListener('submit', function(event) {
-//   event.preventDefault();
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-//   // Get the values of the name and email fields
-//   const name = document.getElementById('firstname').value;
-//   const username = document.getElementById('username').value;
+  // Get the values of the name and email fields
+  const name = document.getElementById('firstname').value;
+  const username = document.getElementById('username').value;
 
-//   // Create a new element to display the data
-//   const p = document.createElement('p');
+  // Create a new element to display the data
+  const p = document.createElement('p');
 
-//   // Set the text content of the new element to the name and email values
-//   p.textContent = `Name: ${name}, Username: ${username}`;
+  // Set the text content of the new element to the name and email values
+  p.textContent = `Name: ${name}, Username: ${username}`;
 
-//   // Append the new element to the output div
-//   outputDiv.appendChild(p);
+  // Append the new element to the output div
+  outputDiv.appendChild(p);
 
-//   // Reset the form
-//   form.reset();
-// });
-
-
-</script>
+  // Reset the form
+  form.reset();
+});
+</script> -->
 
  <!-- add or remove -->
 <script>
-  // Get the inputs wrapper and initial input elements
+// function to add 2 inputs
+function add() {
+  // create new input wrapper div element
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('input-wrapper');
+
+  // create new input elements
+  const newInput1 = document.createElement('input');
+  const newInput2 = document.createElement('input');
+
+  // set the class of the inputs
+  newInput1.classList.add('num-input');
+  newInput2.classList.add('num-input');
+
+  // append the new inputs to the input wrapper div
+  newDiv.appendChild(newInput1);
+  newDiv.appendChild(newInput2);
+
+  // get the inputs wrapper div element
   const inputsWrapper = document.getElementById('inputs-wrapper');
-  const numInputs = document.querySelectorAll('.num-input');
-  
-  // Define the add and remove functions
-  function add() {
-    // Create two new input elements and append them to the wrapper
-    const newInput1 = document.createElement('input');
-    newInput1.type = 'number';
-    newInput1.className = 'num-input';
-    newInput1.value = '0';
-    inputsWrapper.appendChild(newInput1);
-    
-    const newInput2 = document.createElement('input');
-    newInput2.type = 'number';
-    newInput2.className = 'num-input';
-    newInput2.value = '0';
-    inputsWrapper.appendChild(newInput2);
+
+  // append the new input wrapper div to the inputs wrapper
+  inputsWrapper.appendChild(newDiv);
+}
+
+// function to remove 2 inputs
+function remove() {
+  // get all the input wrapper div elements
+  const inputDivs = document.querySelectorAll('#inputs-wrapper > div');
+
+  // check if there are at least 2 input wrapper divs to remove
+  if (inputDivs.length >= 1) {
+    // remove the last 2 input wrapper divs from the DOM
+    inputDivs[inputDivs.length - 1].remove();
+    // inputDivs[inputDivs.length - 2].remove();
   }
-  
-  function remove() {
-    // Remove the last two input elements from the wrapper if there are any
-    const numInputs = document.querySelectorAll('.num-input');
-    if (numInputs.length > 2) {
-      numInputs[numInputs.length - 1].remove();
-      numInputs[numInputs.length - 2].remove();
-    }
-  }
+}
 </script>
 
-
+ 
 <!-- <script>
 var survey_options = document.getElementById('survey_options');
 var add_more_fields = document.getElementById('add_more_fields');
@@ -378,6 +402,38 @@ remove_fields.onclick = function(){
     survey_options.removeChild(input_tags[(input_tags.length) - 1]);
   }
 }
+</script> -->
+
+<!-- <script>
+  // Get the inputs wrapper and initial input elements
+  const inputsWrapper = document.getElementById('inputs-wrapper');
+
+  const numInputs = document.querySelectorAll('.num-input');
+  
+  // Define the add and remove functions
+  function add() {
+    // Create two new input elements and append them to the wrapper
+    const newInput1 = document.createElement('input');
+    newInput1.type = 'text';
+    newInput1.className = 'num-input';
+    newInput1.style = 'width: 274px;border: 2px solid black;';
+    inputsWrapper.appendChild(newInput1);
+    
+    const newInput2 = document.createElement('input');
+    newInput1.type = 'text';
+    newInput1.className = 'num-input';
+    newInput1.style = 'width: 274px;border: 2px solid black;';
+    inputsWrapper.appendChild(newInput2);
+  }
+  
+  function remove() {
+    // Remove the last two input elements from the wrapper if there are any
+    const numInputs = document.querySelectorAll('.num-input');
+    if (numInputs.length > 2) {
+      numInputs[numInputs.length - 1].remove();
+      numInputs[numInputs.length - 2].remove();
+    }
+  }
 </script> -->
 
 <!-- password alert msg -->
