@@ -145,7 +145,7 @@ nav {
     width: 100%;
     margin: 50px auto 0;
     padding: 20px 20px 10px;
-    background-color: #6db988;
+    background-color: transparent;
     color: black;
     border: 3px solid black;
     border-radius: 10px;
@@ -227,10 +227,11 @@ hr {
     }
     .address select {
         width: 100%;
-        margin-right: 20px;
+        /* margin-right: 20px; */
         color: black;
         border: 2px solid black;
     }
+
     
 
 .registration input {

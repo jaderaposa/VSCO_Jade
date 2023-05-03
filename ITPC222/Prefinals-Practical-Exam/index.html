@@ -542,7 +542,7 @@ userInput.addEventListener("input", function() {
     var passwordStrength = calculatePasswordStrength(password);
 
     if (passwordStrength < 3) {
-      passwordAlert.textContent = "Password must be at least 8 characters long and contain uppercase and lowercase letters, numbers, and special characters.";
+      passwordAlert.textContent = "Password must be at least 8 characters long and may contain uppercase and lowercase letters, numbers, and special characters.";
     } else {
       passwordAlert.textContent = "";
     }
@@ -628,7 +628,7 @@ userInput.addEventListener("input", function() {
   });
 </script>
 
-<!-- Password Strength -->
+<!-- strong password -->
 <script>
   function checkPasswordStrength() {
     let password = document.getElementById('password').value;
