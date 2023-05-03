@@ -73,6 +73,7 @@ include('db_config.php');
         <div class="registration" style="width:100%;">
           <div class="form">
             <form method="post" id="account-form" class="my-form">
+              <div style="justify-content: center;display: grid;">
               <div class="name">
                 <div>
                   <label for="firstname">First Name:</label>
@@ -133,7 +134,7 @@ include('db_config.php');
                 </select>
               </div>
 
-              <div class="2nd-row" style="display:flex; gap:20px;">
+              <div class="2nd-row" style="display: flex;gap: 20px;align-items: center;">
               <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required>
@@ -141,8 +142,9 @@ include('db_config.php');
               </div>
               <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
+                <input type="password" id="password" name="password" onkeyup="checkPasswordStrength()" required><br>
               </div>
+              <p id="password-strength"></p>
               </div>
 
               
@@ -150,6 +152,7 @@ include('db_config.php');
                 <label for="image">Upload Image:</label>
                 <input type="file" id="image" name="image" style="width: 30%;border: none;" accept="image/*">
               </div>
+            </div>
 
             <div class="dynamic-add&remove-row" style="margin-top: 5rem;">
               <div class="wrapper" style="border: 2px solid black;text-align: center;width: 60%;border-radius: 1.5rem;">
@@ -623,4 +626,39 @@ userInput.addEventListener("input", function() {
       });
     });
   });
+</script>
+
+<!-- Password Strength -->
+<script>
+  function checkPasswordStrength() {
+    let password = document.getElementById('password').value;
+    let passwordStrength = document.getElementById('password-strength');
+
+    // Do some basic password strength checks
+    let strength = 0;
+    if (password.length >= 8)strength++
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[@#$%^&+=]/.test(password)) strength++;
+
+    // Display the password strength
+    switch (strength) {
+      case 0:
+      case 1:
+        passwordStrength.innerHTML = "Password strength: Weak";
+        passwordStrength.style.color = "red";
+        break;
+      case 2:
+      case 3:
+        passwordStrength.innerHTML = "Password strength: Medium";
+        passwordStrength.style.color = "orange";
+        break;
+      case 4:
+      case 5:
+        passwordStrength.innerHTML = "Password strength: Strong";
+        passwordStrength.style.color = "green";
+        break;
+    }
+  }
 </script>
