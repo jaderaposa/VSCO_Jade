@@ -633,6 +633,7 @@ userInput.addEventListener("input", function() {
   function checkPasswordStrength() {
     let password = document.getElementById('password').value;
     let passwordStrength = document.getElementById('password-strength');
+    let passwordInput = document.getElementById('password');
 
     // Do some basic password strength checks
     let strength = 0;
@@ -648,17 +649,20 @@ userInput.addEventListener("input", function() {
       case 1:
         passwordStrength.innerHTML = "Password strength: Weak";
         passwordStrength.style.color = "red";
+        passwordInput.setCustomValidity("Password is too weak.");
         break;
       case 2:
       case 3:
         passwordStrength.innerHTML = "Password strength: Medium";
         passwordStrength.style.color = "orange";
+        passwordInput.setCustomValidity("");
         break;
       case 4:
       case 5:
         passwordStrength.innerHTML = "Password strength: Strong";
         passwordStrength.style.color = "green";
+        passwordInput.setCustomValidity("");
         break;
     }
-  }
+}
 </script>
