@@ -1,0 +1,355 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(1,121,111,1) 0%, rgba(141,182,0,1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.title-bar {
+    background-color: #057303;
+    position: fixed;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    height: 50px;
+    border-bottom: 2px solid black;
+    z-index: 1;
+    }
+    .title-bar h1 {
+    margin: 0;
+    font-size: 20px;
+    }
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    top: 50px;
+    border: 2px solid black;
+    border-top: 0;
+    }
+    .sidebar li {
+        margin-bottom: 10px;
+    }
+    .sidebar a {
+        color: #000000;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+.circle-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    }
+    .circle-img img {
+        max-width: 100%;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 2px solid black;
+        margin: 50px 0 50px 0;
+    }
+
+.navbar {
+    background-color: #057303;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    border-radius: 0;
+    margin-bottom: 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    }
+    .navbar h1 {
+        font-size: 36px;
+        margin-bottom: 0;
+    }
+
+.profile-details {
+    padding: 0 0 20px 0;
+    }
+    .profile-details h1,
+    .profile-details h2{
+        display: flex;
+        font-size: 15px;
+        justify-content: center;
+        margin: 5px;
+    }
+    .profile-details h1 {
+        font-size: 20px;
+    }
+    .profile-details h1:nth-child(3) {
+        font-size: 12px;
+    }
+
+nav {
+    margin-top: 5px;
+    text-align: left;
+    color: #fff;
+    display: block;
+    }
+    nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    }
+    nav li {
+    display: block;
+    }
+    nav a {
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    }
+    nav a:hover {
+        background-color: black;
+        color: white;
+    }
+    nav ul li a.active {
+        color: white;
+        background: black;
+      }
+
+.container {
+    max-width: 50%;
+    width: 100%;
+    margin: 22px auto 0;
+    padding: 20px 20px 10px;
+    background-color: transparent;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    transform: translateX(-35%);
+    top: 10%;
+    box-shadow: 0px 0px 15px 4px black;
+    scale: 1.1;
+    }
+    .container h1 {
+        font-size: 30px;
+    }
+    .container-title h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+form {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    border: 1.5px solid black
+}
+
+.name {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.upload-image {
+    display: flex;
+    align-items: center;
+    }
+    .upload-image input {
+        margin-left: 10px;
+    }
+
+.wrapper {
+    width: 295px;
+    padding: 10px;
+    }
+    .wrapper input[type="text"]{
+        padding: 5px;
+        margin-bottom: 5px;
+        display: block;
+        border-radius: 5px;
+        width: 274px;
+        color: black;
+    }
+
+
+/* input[type="text"]:focus {
+    outline: none;
+} */
+
+.controls {
+    width: 100%;
+}
+
+#remove_fields {
+    float: right;
+}
+.controls a i.fa-minus,
+.controls a i.fa-plus {
+    color:black;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    }
+    .address select {
+        width: 100%;
+        /* margin-right: 20px; */
+        color: black;
+        border: 2px solid black;
+    }
+
+    
+
+.registration input {
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    }
+    .registration div {
+        margin-bottom: 10px;
+    }
+
+input#image {
+    background: transparent;
+}
+
+.sex input {
+    width: auto;
+    }
+    .sex label {
+        margin-right: 10px;
+    }
+
+.submit {
+    width: 100%;
+    text-align: right;
+    }
+    .submit input {
+        border-radius: 5px;
+        color: white;
+        background: black;
+    }
+
+.registration input, 
+.registration select {
+    background: white;
+    border: 2px solid black;
+}
+
+.dynamic-add\&remove-row {
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    gap: 20%;
+    margin-top: 3rem;
+    }
+    .dynamic-add\&remove-row h1{
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+.margin-5 {
+    margin-bottom: 5px;
+    }
+    .margin-5 input[type="text"] {
+        margin-right: 5px;
+        width: 274px;
+    }
+
+.controls {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 5px 0;
+}
+
+.outlined {
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black; /* Standard syntax */
+  }
+
+div.address {
+    margin-bottom: 20px;
+}
+
+input:invalid {
+    border-color: red;
+  }
+  
+  input:invalid:focus {
+    outline: none;
+  }
+  
+  input:invalid::placeholder {
+    color: red;
+  }
+  
+  input:invalid + span::before {
+    content: "⚠ ";
+    color: red;
+    font-size: smaller;
+  }
+  
+  input:invalid + span {
+    display: block;
+    color: red;
+    font-size: smaller;
+  }
+
+.input-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+/* Style for the input elements */
+.num-input {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.fontnga h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+button:disabled {
+    opacity: 0.5;
+  
+  }
