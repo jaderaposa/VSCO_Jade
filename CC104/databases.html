@@ -1,0 +1,663 @@
+<html>
+  <head>
+    <title>Dynamic Dependent Select Box using jQuery, Ajax and PHP - Clue Mediator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="css/css.css" type="text/css"
+          rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ee7690777c.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div class="title-bar">
+      <h1 style="font-size: 38px;color: white;-webkit-text-stroke: 1px black;text-stroke: 1px black;">Plant Information System</h1>
+    </div>
+
+    <div class='sidebar'>
+      <div class='profile'>
+        <div class='circle-img'>
+          <img src="images/jaded.jpg" alt="profile image">
+        </div>
+        <div class='profile-details'>
+          <h1>Jade Raposa</h1>
+          <h2>BSIT-2 Student</h2>
+          <h1>Divine Word College of Legazpi</h1>
+        </div>
+      </div>
+
+      <div class='navbar'>
+        <h1 class="outlined">Navigations</h1>
+      </div>
+
+      <div>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="index.php"  class="active">Registration Form</a></li>
+          </ul>
+        </nav>
+        <script>
+          // Get the current URL
+          var currentUrl = window.location.href;
+
+          // Loop through each link in the navigation menu
+          $('nav ul li a').each(function() {
+
+            // If the link's URL matches the current URL, add the "active" class
+            if ($(this).attr('href') === currentUrl) {
+              $(this).addClass('active');
+            }
+
+          });
+        </script>
+      </div>
+        
+    </div>
+
+    
+      <div class="container">
+        <div class="container-title">
+        <h1 style="font-weight: bold;">Registration Form</h1>
+        </div>
+
+        <hr>
+
+        <div class="registration" style="width:100%;">
+          <div class="form">
+            <form method="post" id="account-form" class="my-form">
+              <div style="justify-content: center;display: grid;">
+              <div class="name">
+                <div>
+                  <label for="firstname">First Name:</label>
+                  <input type="text" pattern="[A-Za-z]+" id="firstname" name="firstname" required>
+                </div>
+                <div>
+                  <label for="middlename">Middle Name:</label>
+                  <input type="text" id="middlename" name="middlename" required>
+                </div>
+                <div>
+                  <label for="lastname">Last Name:</label>
+                  <input type="text" id="lastname" name="lastname" required><br>
+                </div>
+              </div>
+              <div class="2nd-row" style="display:flex; gap:20px;align-items: center;">
+              <div>
+              <label for="contact-number">Contact Number:</label>
+              <input type="number" id="contact-number" name="contact-number" maxlength="12" required>
+              </div>
+              <div class="sex">
+                <label for="sex">Sex:</label>
+                <input type="radio" id="male" name="sex" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="sex" value="female" required>
+                <label for="female">Female</label>
+              </div>
+              <div>
+              <label style="margin-right:10px;" for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday" pattern="\d{2}/\d{2}/\d{4}" min="1990-01-01" max="2021-12-31" oninvalid="this.setCustomValidity('Please enter a valid birthdate')">
+              </div>
+              </div>
+
+              <div class="address">
+                <label for="regions">Region:&nbsp;</label>
+                <select class="form-control" id="regions">
+                  <option value="">Select Region</option>
+                  <!-- <?php
+                  $query = "SELECT * FROM regions";
+                  $result = $con->query($query);
+                  if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                  echo '<option value="'.$row['id'].'">'.$row['region_name'].'</option>';
+                  }
+                  }else{
+                  echo '<option value="">Region not available</option>';
+                  } -->
+                  ?>
+                </select>
+
+                <label for="municipalities">Municipality:&nbsp;</label>
+                <select class="form-control" id="municipalities">
+                  <option value="">Select Municipality</option>
+                </select>
+
+                <label for="barangays">Barangay:&nbsp;</label>
+                <select class="form-control" id="barangays">
+                  <option value="">Select Barangay</option>
+                </select>
+              </div>
+
+              <div class="2nd-row" style="display: flex;gap: 20px;align-items: center;">
+              <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" min="4" max="12" minlength="4" maxlength="12" required>
+                <br>
+              </div>
+              <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" onkeyup="checkPasswordStrength()" required><br>
+              </div>
+              <p id="password-strength"></p>
+              </div>
+
+              
+              <div class="upload-image">
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" style="width: 30%;border: none;" accept="image/*">
+              </div>
+            </div>
+
+            <div class="dynamic-add&remove-row" style="margin-top: 5rem;">
+              <div class="wrapper" style="border: 2px solid black;text-align: center;width: 60%;border-radius: 1.5rem;">
+                <h1 style="font-size: 2.5rem;">What are the things you like and not like about yourself?</h1>
+                <div class="fontnga" style="display: flex; justify-content:center;gap: 20%;">
+                  <h2>Likes</h2>
+                  <h2>Dislikes</h2>
+                </div>
+                <div id="inputs-wrapper" style="justify-content: center;display:grid;">
+                  <div class="input-wrapper">
+                    <input style="width: 150px;" type="text" class="num-input">
+                    <input style="width: 150px;" type="text" class="num-input">
+                </div>
+                  <!-- Input elements will be added dynamically here -->
+                </div>
+                <div style="justify-content: space-between; display: flex;">
+                  <button style="border: none;background: none;" onclick="add()"><i class="fa fa-plus"></i></button>
+                  <button style="border: none;background: none;" onclick="remove()"><i class="fa fa-minus"></i></button>
+                </div>
+          
+                <!-- <h1 style="font-size: 2rem;text-align: center;">What Do You Like And Not Like About Yourself?</h1>
+                <hr style="margin-bottom: 1rem;">
+                <div id="inputs-wrapper" style="display:flex;gap:2rem;justify-content: center;">
+                  <div style="text-align: center;">
+                    <h2>Likes</h2>
+                    <input type="text" class="num-input">
+                  </div>
+                  <div style="text-align: center;">
+                    <h2>Unlikes</h2>
+                    <input type="text" class="num-input">
+                  </div>
+                </div>
+                <br><br>
+                <div style="justify-content: space-between;display: flex;">
+                  <button onclick="add()">Add 2 Inputs</button>
+                  <button onclick="remove()">Remove 2 Inputs</button>
+                </div>          -->
+            </div>
+          </div>
+
+              <div class="submit">
+                <span id="username-alert" style="color: red;float: left;"></span>
+                <span id="password-alert" style="color: red;float: left;"></span>
+                <button type="submit" class="sebmet" id="submit-btn submitBtn create-account-btn" onclick="checkIfExists()" disabled style="background-color: #057303;border: 2px solid black;color: white;font-size: 19px;padding:5px;border-radius:5px;"">Submit</button>
+                <!-- <button onclick="displayData()">Submit</button> -->
+              </div>
+
+            </form>
+
+            <!-- <script>
+              function checkInputs() {
+                // Get all required input fields
+                const inputs = document.querySelectorAll('input[required]');
+
+                // Check if all required input fields are filled
+                let isFilled = true;
+                inputs.forEach(input => {
+                  if (!input.value) {
+                    isFilled = false;
+                  }
+                });
+
+                // Enable or disable the submit button based on whether all required fields are filled
+                const submitButton = document.getElementById('submit');
+                submitButton.disabled = !isFilled;
+              }
+            </script> -->
+
+            <script>
+            // function displayData() {
+            //   var firstname = document.getElementById("firstname").value;
+            //   var middlename = document.getElementById("middlename").value;
+            //   var lastname = document.getElementById("lastname").value;
+            //   var username = document.getElementById("username").value;
+            //   var contact = document.getElementById("contact-number").value;
+            //   var email = document.getElementByName("sex").value;
+            //   var email = document.getElementById("regions").value;
+            //   var email = document.getElementById("municipalities").value;
+            //   var email = document.getElementById("email").value;
+            //   var email = document.getElementById("email").value;
+
+            //   var output = document.createElement("p");
+            //   output.innerHTML = "Name: " + name + "<br>Email: " + email;
+
+            //   document.body.appendChild(output);
+            // }
+            </script>
+
+            
+
+        </div>
+      </div>
+
+  </body>
+</html>
+
+<!-- prevent from typing more than 12 numbers in the input field -->
+<script>
+  const myInput = document.getElementById('contact-number');
+  
+  myInput.addEventListener('input', () => {
+    if (myInput.value.length > 12) {
+      myInput.value = myInput.value.slice(0, 12);
+    }
+  });
+</script>
+
+<!-- disabled submit -->
+<!-- <script>
+  const input1 = document.getElementById("firstname");
+  const input2 = document.getElementById("middlename");
+  const input3 = document.getElementById("lastname");
+  const input4 = document.getElementById("contact-number");
+  const input5 = document.getElementById("username");
+  const input6 = document.getElementById("password");
+  const submit = document.getElementById("submitBtn");
+
+  // Add event listeners to input fields to check if they are filled
+  input1.addEventListener("input", validateInputs);
+  input2.addEventListener("input", validateInputs);
+  input3.addEventListener("input", validateInputs);
+  input4.addEventListener("input", validateInputs);
+  input5.addEventListener("input", validateInputs);
+  input6.addEventListener("input", validateInputs);
+
+  function validateInputs() {
+    if (input1.value && input2.value && input3.value && input4.value && input5.value && input6.value) {
+      submit.disabled = false;
+    } else {
+      submit.disabled = true;
+    }
+  }
+</script> -->
+
+<!-- prevent number -->
+<script>
+
+    const firstNameInput = document.getElementById('firstname');
+    const middleNameInput = document.getElementById('middlename');
+    const lastNameInput = document.getElementById('lastname');
+  
+    firstNameInput.addEventListener('input', restrictNonText);
+    middleNameInput.addEventListener('input', restrictNonText);
+    lastNameInput.addEventListener('input', restrictNonText);
+  
+    function restrictNonText(event) {
+      const regex = /[^a-zA-Z]/g; // allow only text characters
+      const inputText = event.target.value;
+      const sanitizedText = inputText.replace(regex, '');
+      event.target.value = sanitizedText;
+    }
+  </script>
+
+
+<!-- dynamic another -->
+<!-- <script src="js/daor.js"></script> -->
+
+
+
+<!-- disabled submit button -->
+<script>
+  const leform = document.querySelector('form');
+  const submit= document.querySelector('.sebmet');
+
+  leform.addEventListener('input', () => {
+    const inputs = leform.querySelectorAll('input[required]');
+    let isFilled = true;
+    inputs.forEach(input => {
+      if (input.value.trim() === '') {
+        isFilled = false;
+      }
+    });
+    if (isFilled) {
+      submit.removeAttribute('disabled');
+    } else {
+      submit.setAttribute('disabled', true);
+    }
+  });
+</script>
+
+
+
+
+<!-- display data -->
+<!-- <script>
+const form = document.getElementByClass('my-form');
+const outputDiv = document.getElementById('output');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get the values of the name and email fields
+  const name = document.getElementById('firstname').value;
+  const username = document.getElementById('username').value;
+
+  // Create a new element to display the data
+  const p = document.createElement('p');
+
+  // Set the text content of the new element to the name and email values
+  p.textContent = `Name: ${name}, Username: ${username}`;
+
+  // Append the new element to the output div
+  outputDiv.appendChild(p);
+
+  // Reset the form
+  form.reset();
+});
+</script> -->
+
+ <!-- add or remove -->
+<script>
+// function to add 2 inputs
+function add() {
+  // create new input wrapper div element
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('input-wrapper');
+
+  // create new input elements
+  const newInput1 = document.createElement('input');
+  const newInput2 = document.createElement('input');
+
+  // set the class of the inputs
+  newInput1.classList.add('num-input');
+  newInput2.classList.add('num-input');
+
+  // append the new inputs to the input wrapper div
+  newDiv.appendChild(newInput1);
+  newDiv.appendChild(newInput2);
+
+  // get the inputs wrapper div element
+  const inputsWrapper = document.getElementById('inputs-wrapper');
+
+  // append the new input wrapper div to the inputs wrapper
+  inputsWrapper.appendChild(newDiv);
+}
+
+// function to remove 2 inputs
+function remove() {
+  // get all the input wrapper div elements
+  const inputDivs = document.querySelectorAll('#inputs-wrapper > div');
+
+  // check if there are at least 2 input wrapper divs to remove
+  if (inputDivs.length >= 1) {
+    // remove the last 2 input wrapper divs from the DOM
+    inputDivs[inputDivs.length - 1].remove();
+    // inputDivs[inputDivs.length - 2].remove();
+  }
+}
+</script>
+
+ 
+<!-- <script>
+var survey_options = document.getElementById('survey_options');
+var add_more_fields = document.getElementById('add_more_fields');
+var remove_fields = document.getElementById('remove_fields');
+
+add_more_fields.onclick = function(){
+  var newField = document.createElement('input');
+  newField.setAttribute('type','text');
+  newField.setAttribute('name','survey_options[]');
+  newField.setAttribute('class','survey_options');
+  newField.setAttribute('size',50);
+  newField.setAttribute('placeholder','');
+  survey_options.appendChild(newField);
+}
+
+remove_fields.onclick = function(){
+  var input_tags = survey_options.getElementsByTagName('input');
+  if(input_tags.length > 3) {
+    survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+  }
+}
+</script> -->
+
+<!-- <script>
+  // Get the inputs wrapper and initial input elements
+  const inputsWrapper = document.getElementById('inputs-wrapper');
+
+  const numInputs = document.querySelectorAll('.num-input');
+  
+  // Define the add and remove functions
+  function add() {
+    // Create two new input elements and append them to the wrapper
+    const newInput1 = document.createElement('input');
+    newInput1.type = 'text';
+    newInput1.className = 'num-input';
+    newInput1.style = 'width: 274px;border: 2px solid black;';
+    inputsWrapper.appendChild(newInput1);
+    
+    const newInput2 = document.createElement('input');
+    newInput1.type = 'text';
+    newInput1.className = 'num-input';
+    newInput1.style = 'width: 274px;border: 2px solid black;';
+    inputsWrapper.appendChild(newInput2);
+  }
+  
+  function remove() {
+    // Remove the last two input elements from the wrapper if there are any
+    const numInputs = document.querySelectorAll('.num-input');
+    if (numInputs.length > 2) {
+      numInputs[numInputs.length - 1].remove();
+      numInputs[numInputs.length - 2].remove();
+    }
+  }
+</script> -->
+
+<!-- password alert msg -->
+<script>
+  var passwordInput = document.getElementById("password");
+  var submitBtn = document.getElementById("submit-btn");
+
+  submitBtn.addEventListener("click", function() {
+    var password = passwordInput.value;
+
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters long.");
+      return;
+    }
+
+    // Do something else if input is valid...
+  });
+</script>
+
+<!-- dynamic alert msg -->
+<script>
+ const form = document.getElementById('account-form');
+const createAccountBtn = document.getElementById('create-account-btn');
+
+// Add event listener for submit event on the form
+form.addEventListener('submit', function(event) {
+  // Prevent default form submission behavior
+  event.preventDefault();
+
+  // Get the values of the username and password fields
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Simulate account creation
+  const accountCreated = true;
+
+  if (accountCreated) {
+    // Define the message and type of alert
+    const message = `Account ${username} has been successfully created!`;
+    const type = "success";
+
+    // Create a new div element for the alert
+    const alertDiv = document.createElement('div');
+
+    // Add classes to the alert div based on the alert type
+    alertDiv.classList.add('alert', `alert-${type}`);
+
+    // Set the text content of the alert div to the message
+    alertDiv.textContent = message;
+
+    // Insert the alert div after the form in the DOM
+    form.insertAdjacentElement('afterend', alertDiv);
+  }
+});
+</script>
+
+<!-- check existing values -->
+<script>
+// create an array of existing usernames
+const existingUsernames = ["jade", "glaiza", "jesus"];
+
+// get the input field element
+const userInput = document.getElementById("username");
+
+// add an event listener to the input field
+userInput.addEventListener("input", function() {
+  // get the current value of the input field
+  const inputValue = this.value;
+  
+  // check if the input value matches an existing username
+  if (existingUsernames.includes(inputValue)) {
+    alert("Username already exists. Please choose another one.");
+  }
+});
+</script>
+ <!-- strong password -->
+<script>
+  var passwordInput = document.getElementById("password");
+  var passwordAlert = document.getElementById("password-alert");
+
+  passwordInput.addEventListener("input", function() {
+    var password = passwordInput.value;
+    var passwordStrength = calculatePasswordStrength(password);
+
+    if (passwordStrength < 3) {
+      passwordAlert.textContent = "Password must be at least 8 characters long and contain uppercase and lowercase letters, numbers, and special characters.";
+    } else {
+      passwordAlert.textContent = "";
+    }
+  });
+
+  function calculatePasswordStrength(password) {
+    var strength = 0;
+
+    // Check for length of at least 8 characters
+    if (password.length >= 8) {
+      strength++;
+    }
+
+    // Check for uppercase letters
+    if (/[A-Z]/.test(password)) {
+      strength++;
+    }
+
+    // Check for lowercase letters
+    if (/[a-z]/.test(password)) {
+      strength++;
+    }
+
+    // Check for numbers
+    if (/\d/.test(password)) {
+      strength++;
+    }
+
+    // Check for special characters
+    if (/[$-/:-?{-~!"^_`\[\]]/.test(password)) {
+      strength++;
+    }
+
+    return strength;
+  }
+</script>
+
+<!-- usernames alert -->
+<script>
+  var usernameInput = document.getElementById("username");
+  var usernameAlert = document.getElementById("username-alert");
+
+  usernameInput.addEventListener("input", function() {
+    if (usernameInput.value.length < 4) {
+      usernameAlert.textContent = "Username must be at least 4 characters long.";
+    } else {
+      usernameAlert.textContent = "";
+    }
+  });
+</script>
+
+<!-- dynamic dependent select box -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    // Region dependent ajax
+    $("#regions").on("change",function(){
+      var regionId = $(this).val();
+      $.ajax({
+        url :"action.php",
+        type:"POST",
+        cache:false,
+        data:{regionId:regionId},
+        success:function(data){
+          $("#municipalities").html(data);
+          $('#barangays').html('<option value="">Select Barangay</option>');
+        }
+      });
+    });
+ 
+    // Municipality dependent ajax
+    $("#municipalities").on("change", function(){
+      var munId = $(this).val();
+      $.ajax({
+        url :"action.php",
+        type:"POST",
+        cache:false,
+        data:{munId:munId},
+        success:function(data){
+          $("#barangays").html(data);
+        }
+      });
+    });
+  });
+</script>
+
+<!-- Password Strength -->
+<script>
+  function checkPasswordStrength() {
+    let password = document.getElementById('password').value;
+    let passwordStrength = document.getElementById('password-strength');
+    let submitButton = document.getElementById('submit-button');
+
+    // Do some basic password strength checks
+    let strength = 0;
+    if (password.length >= 8)strength++
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[@#$%^&+=]/.test(password)) strength++;
+
+    // Display the password strength
+    switch (strength) {
+      case 0:
+      case 1:
+        passwordStrength.innerHTML = "Password strength: Weak";
+        passwordStrength.style.color = "red";
+        submitButton.disabled = true;
+        break;
+      case 2:
+      case 3:
+        passwordStrength.innerHTML = "Password strength: Medium";
+        passwordStrength.style.color = "orange";
+        submitButton.disabled = false;
+        break;
+      case 4:
+      case 5:
+        passwordStrength.innerHTML = "Password strength: Strong";
+        passwordStrength.style.color = "green";
+        submitButton.disabled = false;
+        break;
+    }
+}
+</script>
