@@ -81,7 +81,7 @@ include('db_config.php');
                 </div>
                 <div>
                   <label for="middlename">Middle Name:</label>
-                  <input type="text" id="middlename" name="middlename"  required>
+                  <input type="text" id="middlename" name="middlename" required>
                 </div>
                 <div>
                   <label for="lastname">Last Name:</label>
@@ -101,8 +101,8 @@ include('db_config.php');
                 <label for="female">Female</label>
               </div>
               <div>
-              <label style="margin-right:10px;" for="birthday">Birthdate:</label>
-              <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2019-12-31" oninvalid="this.setCustomValidity('Please enter a valid birthdate')">
+              <label style="margin-right:10px;" for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday" pattern="\d{2}/\d{2}/\d{4}" min="1990-01-01" max="2021-12-31" oninvalid="this.setCustomValidity('Please enter a valid birthdate')">
               </div>
               </div>
 
@@ -542,7 +542,7 @@ userInput.addEventListener("input", function() {
     var passwordStrength = calculatePasswordStrength(password);
 
     if (passwordStrength < 3) {
-      passwordAlert.textContent = "Password must be at least 8 characters long and may contain uppercase and lowercase letters, numbers, and special characters.";
+      passwordAlert.textContent = "Password must be at least 8 characters long and contain uppercase and lowercase letters, numbers, and special characters.";
     } else {
       passwordAlert.textContent = "";
     }
@@ -628,12 +628,12 @@ userInput.addEventListener("input", function() {
   });
 </script>
 
-<!-- strong password -->
+<!-- Password Strength -->
 <script>
   function checkPasswordStrength() {
     let password = document.getElementById('password').value;
     let passwordStrength = document.getElementById('password-strength');
-    let passwordInput = document.getElementById('password');
+    let submitButton = document.getElementById('submit-button');
 
     // Do some basic password strength checks
     let strength = 0;
@@ -649,19 +649,19 @@ userInput.addEventListener("input", function() {
       case 1:
         passwordStrength.innerHTML = "Password strength: Weak";
         passwordStrength.style.color = "red";
-        passwordInput.setCustomValidity("Password is too weak.");
+        submitButton.disabled = true;
         break;
       case 2:
       case 3:
         passwordStrength.innerHTML = "Password strength: Medium";
         passwordStrength.style.color = "orange";
-        passwordInput.setCustomValidity("");
+        submitButton.disabled = false;
         break;
       case 4:
       case 5:
         passwordStrength.innerHTML = "Password strength: Strong";
         passwordStrength.style.color = "green";
-        passwordInput.setCustomValidity("");
+        submitButton.disabled = false;
         break;
     }
 }
