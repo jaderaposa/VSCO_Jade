@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2023 at 03:32 PM
+-- Generation Time: May 13, 2023 at 10:20 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,10 +31,21 @@ CREATE TABLE `admissions` (
   `Admission_ID` int(10) NOT NULL,
   `User_ID` int(10) DEFAULT NULL,
   `Staff_ID` int(10) DEFAULT NULL,
-  `Preferred_Method` tinyint(1) DEFAULT NULL,
+  `Preferred_Method` varchar(255) DEFAULT NULL,
   `Date_Admissioned` date DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL
+  `Admission_Description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admissions`
+--
+
+INSERT INTO `admissions` (`Admission_ID`, `User_ID`, `Staff_ID`, `Preferred_Method`, `Date_Admissioned`, `Admission_Description`) VALUES
+(1, 1, 4, 'Anonymous', '1998-02-19', 'Anxiety Disorder'),
+(2, 2, 5, 'Introduce', '1998-01-19', 'Behavioural and Emotional Disorder'),
+(3, 3, 4, 'Anonymous', '1998-03-19', 'Bipolar Affective Disorder'),
+(4, 3, 3, 'Introduce', '1998-04-19', 'Depression'),
+(5, 5, 2, 'Anonymous', '1998-05-19', 'Dissociation Disorder');
 
 -- --------------------------------------------------------
 
@@ -61,11 +72,23 @@ CREATE TABLE `appointments` (
 
 CREATE TABLE `counselors` (
   `Counselor_ID` int(10) NOT NULL,
-  `Counselor_Specialty` varchar(255) DEFAULT NULL,
   `Counselor_Name` varchar(255) DEFAULT NULL,
   `Counselor_Address` varchar(255) DEFAULT NULL,
-  `Counselor_PhoneNo` int(11) DEFAULT NULL
+  `Counselor_PhoneNo` bigint(11) DEFAULT NULL,
+  `Counselor_Specialty` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `counselors`
+--
+
+INSERT INTO `counselors` (`Counselor_ID`, `Counselor_Name`, `Counselor_Address`, `Counselor_PhoneNo`, `Counselor_Specialty`) VALUES
+(1, 'René Descartes', 'Taga Rawis', 9471918324, 'Grief Counseling'),
+(7, 'Socrates', 'Taga Bukid', 9471918324, 'Career Counseling'),
+(8, 'Plato', 'Taga Dagat', 9471918324, 'Family Therapy'),
+(9, 'Aristotle', 'Taga Siyudad', 9471918324, 'Mental Health Counseling'),
+(10, 'Nietzsche', 'Taga Probinsya', 9471918324, 'Counseling Psychology'),
+(11, 'Immanuel Kant', 'Sto. Domingo Jail', 9471918324, 'Cognitive Behavioral Therapy');
 
 -- --------------------------------------------------------
 
@@ -108,9 +131,21 @@ CREATE TABLE `staffs` (
   `Staff_ID` int(10) NOT NULL,
   `Staff_Name` varchar(255) DEFAULT NULL,
   `Staff_Address` varchar(255) DEFAULT NULL,
-  `Staff_PhoneNo` int(11) DEFAULT NULL,
+  `Staff_PhoneNo` bigint(11) DEFAULT NULL,
   `Staff_Position` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `staffs`
+--
+
+INSERT INTO `staffs` (`Staff_ID`, `Staff_Name`, `Staff_Address`, `Staff_PhoneNo`, `Staff_Position`) VALUES
+(1, 'Julius Randle', 'Polangui', 9663969556, 'Staff I'),
+(2, 'Luka Doncic', 'Sorsogon', 9163969556, 'Staff II'),
+(3, 'Lebron James', 'Camarines Sur', 9263969556, 'Staff III'),
+(4, 'Stephen Curry', 'Camarines Norte', 9363969556, 'Staff IV'),
+(5, 'Trae Young', 'Daraga', 9463969556, 'Staff V'),
+(6, 'Jayson Tatum', 'Old Albay', 9563969556, 'Staff VI');
 
 -- --------------------------------------------------------
 
@@ -123,8 +158,22 @@ CREATE TABLE `users` (
   `User_Name` varchar(255) DEFAULT NULL,
   `User_Pronoun` varchar(5) DEFAULT NULL,
   `User_Address` varchar(255) DEFAULT NULL,
-  `User_PhoneNo` int(11) DEFAULT NULL
+  `User_PhoneNo` bigint(12) DEFAULT NULL,
+  `User_Img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`User_ID`, `User_Name`, `User_Pronoun`, `User_Address`, `User_PhoneNo`, `User_Img`) VALUES
+(1, 'Jaded', 'Him', 'SDA', 9663969556, 'tulipfruit.jfif'),
+(2, 'Glaiza', 'Her', 'Rawis, San Joaquin', 9526484894, ''),
+(3, 'Stephen', 'It', 'San Francisco, California', 9526484814, ''),
+(5, 'Andrea', 'Her', 'Rawis, San Joaquin', 9667539538, ''),
+(6, 'Klay', 'Him', 'San Francisco, California', 9667247538, ''),
+(9, 'asdsadsa', 'asdas', '21321321321321', 123213213, 'F.png'),
+(10, 'jade', 'asdas', 'adasdasdasd', 12321321, '');
 
 --
 -- Indexes for dumped tables
@@ -190,7 +239,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admissions`
 --
 ALTER TABLE `admissions`
-  MODIFY `Admission_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Admission_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `appointments`
@@ -202,7 +251,7 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `counselors`
 --
 ALTER TABLE `counselors`
-  MODIFY `Counselor_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Counselor_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -220,13 +269,13 @@ ALTER TABLE `referrals`
 -- AUTO_INCREMENT for table `staffs`
 --
 ALTER TABLE `staffs`
-  MODIFY `Staff_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Staff_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `User_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `User_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
