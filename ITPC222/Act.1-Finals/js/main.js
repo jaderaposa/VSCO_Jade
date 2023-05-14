@@ -9,7 +9,7 @@ $(document).ready( function () {
             {'contacts' : 'last_name'},
             {'contacts' : 'email'},
             {'contacts' : 'location'},
-            {'contacts' : 'job title'}
+            {'contacts' : 'job_title'}
         ]
     });
 } );
