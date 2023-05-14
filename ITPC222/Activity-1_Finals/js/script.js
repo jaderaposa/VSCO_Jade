@@ -5,18 +5,15 @@ xmlhttp.send();
 xmlhttp.onreadystatechange = function(){
   if(this.readyState == 4 && this.status == 200){
     var data = JSON.parse(this.responseText);
-    //console.log(data)
-
     $('#example').DataTable( {
-        //"ajax": "data/objects.txt",
         "data":data.data,
         "columns": [
             { "data": "name" },
             { "data": "position" },
+            { "data": "salary" },
             { "data": "office" },
-            { "data": "extn" },
             { "data": "start_date" },
-            { "data": "salary" }
+            { "data": "extn" }
         ]
     } );
 

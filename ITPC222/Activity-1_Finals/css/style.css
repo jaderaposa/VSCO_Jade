@@ -8,9 +8,8 @@ body{
 	font-family: arial;
 	font-size: 16px;
 	margin: 0;
-	background: #6ebce2;
+	background: linear-gradient(0deg, rgba(0,0,0,1) 54%, rgba(0,44,255,1) 100%);
 	color: #000;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -30,6 +29,7 @@ table tfoot tr td,
 table tfoot tr th{
 	background-color: #000;
 	color: #fff;
+	text-shadow: 0 0 7px #f00, 0 0 10px #fb0303, 0 0 21px #ff0303, 0 0 42px #f00, 0 0 82px #f00;
 }
 #example_filter{
 	margin-bottom: 20px;
