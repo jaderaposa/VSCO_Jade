@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 10:20 AM
+-- Generation Time: May 15, 2023 at 08:32 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -132,20 +132,21 @@ CREATE TABLE `staffs` (
   `Staff_Name` varchar(255) DEFAULT NULL,
   `Staff_Address` varchar(255) DEFAULT NULL,
   `Staff_PhoneNo` bigint(11) DEFAULT NULL,
-  `Staff_Position` varchar(255) DEFAULT NULL
+  `Staff_Position` varchar(255) DEFAULT NULL,
+  `Staff_Img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `staffs`
 --
 
-INSERT INTO `staffs` (`Staff_ID`, `Staff_Name`, `Staff_Address`, `Staff_PhoneNo`, `Staff_Position`) VALUES
-(1, 'Julius Randle', 'Polangui', 9663969556, 'Staff I'),
-(2, 'Luka Doncic', 'Sorsogon', 9163969556, 'Staff II'),
-(3, 'Lebron James', 'Camarines Sur', 9263969556, 'Staff III'),
-(4, 'Stephen Curry', 'Camarines Norte', 9363969556, 'Staff IV'),
-(5, 'Trae Young', 'Daraga', 9463969556, 'Staff V'),
-(6, 'Jayson Tatum', 'Old Albay', 9563969556, 'Staff VI');
+INSERT INTO `staffs` (`Staff_ID`, `Staff_Name`, `Staff_Address`, `Staff_PhoneNo`, `Staff_Position`, `Staff_Img`) VALUES
+(1, 'Julius Randle', 'Polangui', 9663969556, 'Staff I', ''),
+(2, 'Luka Doncic', 'Sorsogon', 9163969556, 'Staff II', ''),
+(3, 'Lebron James', 'Camarines Sur', 9263969556, 'Staff III', ''),
+(4, 'Stephen Curry', 'Camarines Norte', 9363969556, 'Staff IV', ''),
+(5, 'Trae Young', 'Daraga', 9463969556, 'Staff V', ''),
+(6, 'Jayson Tatum', 'Old Albay', 9563969556, 'Staff VI', '');
 
 -- --------------------------------------------------------
 
