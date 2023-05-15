@@ -21,7 +21,14 @@
     border: 1px solid transparent;
     background: transparent;
     box-shadow: none;
-}
+    }
+
+    /* #example_wrapper {
+    position: relative;
+    top: 12rem;
+    clear: both;
+    } */
+
 
     </style>
 
