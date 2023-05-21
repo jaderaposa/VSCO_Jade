@@ -19,8 +19,9 @@
 
         <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
-        <!-- Chart.JS -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 
     </head>
@@ -41,7 +42,7 @@
           <h1 style="font-size: 50px;
           color: #ffffff;
           -webkit-text-stroke: 1px black;
-          text-stroke: 1px black;">Maps - Leaflet</h1>
+          text-stroke: 1px black;">Maps</h1>
         </div>
     
         <div class='sidebar'>
@@ -65,7 +66,7 @@
               <ul>
                 <li><a href="data-visualization-chart.js.html" style="font-size: 40px;">Chart JS</a></li>
                 <li><a href="data-visualization-google.html" style="font-size: 40px;">Google Chart</a></li>
-                <li><a href="" style="font-size: 40px;">Map</a></li>
+                <li><a href="maps-leaflet.html" style="font-size: 40px;">Map</a></li>
               </ul>
             </nav> 
           </div>  
@@ -77,52 +78,46 @@
         
         <div class="space" style="padding:36px;"></div>
 
-        <div class="containerr indieflower" style="max-width: 54%;">
+        <div class="containerr indieflower" style="max-width: 54%;transform: translate(0%, 9%);">
             <div style="text-align:center;font-weight:bold;margin-bottom: 10px;">
-            <h1>Chart JS</h1>
-            <h2>Bar Chart</h2>
+            <h1>Maps</h1>
+            <h2>Leaflet</h2>
             </div>
             <hr>
 
-            <div>
-              <h1 style="font-size: 1.5rem;text-align: center;margin-top: 1rem;">NBA 2021-2022 Regular Season</h1>
-                <canvas id="myChart" style="max-height: 750px;"></canvas>
-            </div>
+            <div id="mapid" style="width: 100%;height: 600px;margin: 0 auto 0;"></div>
 
+            <script>
+              var mymap = L.map('mapid').setView([13.236126, 123.777976], 13);
 
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                maxZoom: 18,
+              }).addTo(mymap);
 
+              var marker = L.marker([13.236126, 123.777976]).addTo(mymap);
 
+              // Add a new marker to the map with the given coordinates
+              var newMarker = L.marker([13.236126, 123.777976]).addTo(mymap);
+
+              // You can customize the marker icon using the `setIcon()` method
+              newMarker.setIcon(L.icon({
+                iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+                iconSize: [38, 95],
+                iconAnchor: [22, 94],
+                popupAnchor: [-3, -76]
+              }));
+
+              // You can also add a popup to the marker with any content you want
+              newMarker.bindPopup("<b>Hello!</b><br>This is another location.").openPopup();
+
+              
+            </script>
 
         </div>
 
-        <script>
-            // Canvas element
-            var ctx = document.getElementById('myChart').getContext('2d');
         
-            // Chart
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 'Cleveland Cavaliers', 'Dallas Mavericks', 'Denver Nuggets', 'Detroit Pistons', 'Golden State Warriors', 'Houston Rockets', 'Indiana Pacers', 'LA Clippers', 'Los Angeles Lakers', 'Memphis Grizzlies', 'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'New Orleans Pelicans', 'New York Knicks', 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers', 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'],
-                    datasets: [{
-                        label: 'Wins',
-                        data: [50, 36, 49, 36, 44, 22, 42, 47, 29, 48, 10, 31, 47, 42, 39, 48, 55, 28, 33, 41, 22, 21, 51, 51, 45, 40, 28, 34, 52, 34],
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
+
     
     </body>
 </html>
