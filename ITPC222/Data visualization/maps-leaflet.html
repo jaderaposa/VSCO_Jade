@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Maps</title>
+
+        <!-- Bootstrap CSS -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/home.css">
+
+        <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+
+        <!-- Chart.JS -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    </head>
+<style>
+
+    img {
+        display: inline-flex;
+        vertical-align: middle;
+    }
+    
+</style>
+    
+    <body>
+
+        <!-- UI -->
+    
+        <div class="title-bar">
+          <h1 style="font-size: 50px;
+          color: #ffffff;
+          -webkit-text-stroke: 1px black;
+          text-stroke: 1px black;">Maps - Leaflet</h1>
+        </div>
+    
+        <div class='sidebar'>
+          <div class='profile'>
+            <div class='circle-img'>
+              <img src="images/jaded.jpg" alt="profile image">
+            </div>
+            <div class='profile-details'>
+              <h1>Jade Raposa</h1>
+              <h2>BSIT-2 Student</h2>
+              <h1>Divine Word College of Legazpi</h1>
+            </div>
+          </div>
+    
+          <div class='navbar' style="justify-content:center;">
+            <h1 class>Navigations</h1>
+          </div>
+    
+          <div>
+            <nav>
+              <ul>
+                <li><a href="data-visualization-chart.js.html" style="font-size: 40px;">Chart JS</a></li>
+                <li><a href="data-visualization-google.html" style="font-size: 40px;">Google Chart</a></li>
+                <li><a href="" style="font-size: 40px;">Map</a></li>
+              </ul>
+            </nav> 
+          </div>  
+        </div>
+
+        <!-- End of UI -->
+
+        <!-- Content -->
+        
+        <div class="space" style="padding:36px;"></div>
+
+        <div class="containerr indieflower" style="max-width: 54%;">
+            <div style="text-align:center;font-weight:bold;margin-bottom: 10px;">
+            <h1>Chart JS</h1>
+            <h2>Bar Chart</h2>
+            </div>
+            <hr>
+
+            <div>
+              <h1 style="font-size: 1.5rem;text-align: center;margin-top: 1rem;">NBA 2021-2022 Regular Season</h1>
+                <canvas id="myChart" style="max-height: 750px;"></canvas>
+            </div>
+
+
+
+
+
+        </div>
+
+        <script>
+            // Canvas element
+            var ctx = document.getElementById('myChart').getContext('2d');
+        
+            // Chart
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 'Cleveland Cavaliers', 'Dallas Mavericks', 'Denver Nuggets', 'Detroit Pistons', 'Golden State Warriors', 'Houston Rockets', 'Indiana Pacers', 'LA Clippers', 'Los Angeles Lakers', 'Memphis Grizzlies', 'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'New Orleans Pelicans', 'New York Knicks', 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers', 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'],
+                    datasets: [{
+                        label: 'Wins',
+                        data: [50, 36, 49, 36, 44, 22, 42, 47, 29, 48, 10, 31, 47, 42, 39, 48, 55, 28, 33, 41, 22, 21, 51, 51, 45, 40, 28, 34, 52, 34],
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+    
+    </body>
+</html>

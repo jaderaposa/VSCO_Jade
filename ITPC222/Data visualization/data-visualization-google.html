@@ -19,10 +19,32 @@
 
         <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
-        <!-- Chart.JS -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
+        <!-- Google Chart -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Year', 'Births', 'Deaths'],
+                    ['2000',  2301774,   491387],
+                    ['2005',  2346838,   517594],
+                    ['2010',  2438551,   552024],
+                    ['2015',  2358887,   584347],
+                    ['2020',  1795713,   652972],
+                    ['2021',  1678975,   662212],
+                    ['2022',  1562237,   671503]
+                ]);
+                var options = {
+                    // title: 'Philippines Births and Deaths (2000-2022)',
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                };
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                chart.draw(data, options);
+            }
+        </script>
     </head>
 <style>
 
@@ -63,9 +85,9 @@
           <div>
             <nav>
               <ul>
-                <li><a href="data-visualization.html" style="font-size: 40px;">Chart JS</a></li>
-                <li><a href="" style="font-size: 40px;">Google Chart</a></li>
-                <li><a href="" style="font-size: 40px;">Map</a></li>
+                <li><a href="data-visualization-chart.js.html" style="font-size: 40px;">Chart JS</a></li>
+                <li><a href="data-visualization-google.html" style="font-size: 40px;">Google Chart</a></li>
+                <li><a href="maps-leaflet.html" style="font-size: 40px;">Map</a></li>
               </ul>
             </nav> 
           </div>  
@@ -79,13 +101,14 @@
 
         <div class="containerr indieflower" style="max-width: 54%;">
             <div style="text-align:center;font-weight:bold;margin-bottom: 10px;">
-            <h1>Chart JS</h1>
-            <h2>Bar Chart</h2>
+            <h1>Google Chart</h1>
+            <h2>Curve Chart</h2>
             </div>
             <hr>
 
             <div>
-                <canvas id="myChart" style="max-height: 750px;"></canvas>
+              <h2 style="font-size: 1.5rem;text-align: center;transform: translate(0, 147%);z-index: 1;position: relative;">Philippines Births and Deaths (2000-2022)</h2>
+              <div id="curve_chart" style="width: 100%;height: 500px;margin: 0 auto 0;"></div>
             </div>
 
 
@@ -94,46 +117,6 @@
 
         </div>
 
-        <script>
-            // Canvas element
-            var ctx = document.getElementById('myChart').getContext('2d');
-        
-            // Chart
-            var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Saitama', 'Jaded', 'Nooperabo', 'Mummen Raider', 'Luffy', 'Fanny'],
-                datasets: [{
-                label: 'Number of Kills',
-                data: [8, 20, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 4
-                }]
-            },
-            options: {
-                scales: {
-                y: {
-                    beginAtZero: true
-                }
-                }
-            }
-            });
-          </script>
     
     </body>
 </html>
