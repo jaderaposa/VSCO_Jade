@@ -85,7 +85,7 @@
             <hr>
 
             <div>
-              <h1 style="font-size: 1.5rem;text-align: center;margin-top: 1rem;">NBA 2021-2022 Regular Season</h1>
+              <h1 style="font-size: 1.5rem;text-align: center;margin-top: 1rem;">User List Pronouns</h1>
                 <canvas id="myChart" style="max-height: 750px;"></canvas>
             </div>
 
@@ -98,17 +98,21 @@
         <script>
             // Canvas element
             var ctx = document.getElementById('myChart').getContext('2d');
-        
-            // Chart
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 'Cleveland Cavaliers', 'Dallas Mavericks', 'Denver Nuggets', 'Detroit Pistons', 'Golden State Warriors', 'Houston Rockets', 'Indiana Pacers', 'LA Clippers', 'Los Angeles Lakers', 'Memphis Grizzlies', 'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'New Orleans Pelicans', 'New York Knicks', 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers', 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'],
+                    labels: ['Him', 'Her'],
                     datasets: [{
-                        label: 'Wins',
-                        data: [50, 36, 49, 36, 44, 22, 42, 47, 29, 48, 10, 31, 47, 42, 39, 48, 55, 28, 33, 41, 22, 21, 51, 51, 45, 40, 28, 34, 52, 34],
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
+                        label: '# of People',
+                        data: [5, 3],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
                         borderWidth: 1
                     }]
                 },

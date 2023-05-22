@@ -23,27 +23,26 @@
         <!-- Google Chart -->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Year', 'Births', 'Deaths'],
-                    ['2000',  2301774,   491387],
-                    ['2005',  2346838,   517594],
-                    ['2010',  2438551,   552024],
-                    ['2015',  2358887,   584347],
-                    ['2020',  1795713,   652972],
-                    ['2021',  1678975,   662212],
-                    ['2022',  1562237,   671503]
-                ]);
-                var options = {
-                    // title: 'Philippines Births and Deaths (2000-2022)',
-                    curveType: 'function',
-                    legend: { position: 'bottom' }
-                };
-                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-                chart.draw(data, options);
-            }
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Salary'],
+                ['2015 - Airi Satou',  162700],
+                ['2016 - Ashton Cox',  86000],
+                ['2017 - Cedric Kelly',  433060],
+                ['2018 - Garrett Winters',  170750],
+                ['2019 - Jade Raposa',  98213],
+                ['2020 - Tiger Nixon',  320800]
+            ]);
+            var options = {
+                // title: 'Salaries',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+            chart.draw(data, options);
+        }
         </script>
     </head>
 <style>
@@ -102,13 +101,13 @@
         <div class="containerr indieflower" style="max-width: 54%;">
             <div style="text-align:center;font-weight:bold;margin-bottom: 10px;">
             <h1>Google Chart</h1>
-            <h2>Curve Chart</h2>
+            <h2>Line Chart</h2>
             </div>
             <hr>
 
             <div>
-              <h2 style="font-size: 1.5rem;text-align: center;transform: translate(0, 147%);z-index: 1;position: relative;">Philippines Births and Deaths (2000-2022)</h2>
-              <div id="curve_chart" style="width: 100%;height: 500px;margin: 0 auto 0;"></div>
+              <h2 style="font-size: 1.5rem;text-align: center;transform: translate(0, 147%);z-index: 1;position: relative;">Highest Salary Gained by An Employee Annually</h2>
+              <div id="linechart" style="width: 100%;height: 500px;margin: 0 auto 0;"></div>
             </div>
 
 
