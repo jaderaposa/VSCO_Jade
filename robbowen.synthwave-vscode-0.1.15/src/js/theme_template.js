@@ -91,86 +91,86 @@
     
     /* append the remaining styles */
     updatedThemeStyles = `${updatedThemeStyles}.monaco-editor .margin, .monaco-editor .inputarea.ime-input {
-  background: transparent;
-}
-
-/* Add the subtle gradient to the editor background */
-.monaco-editor {
-  background-color: transparent !important;
-  background-image: linear-gradient(to bottom, #000000 75%, #000000);
-  background-size: auto 100vh;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-
-/* Sweet sunset dots */
-.monaco-workbench .activitybar>.content .monaco-action-bar .badge .badge-content {
-  background: linear-gradient(to bottom, #fff951 25%, #fc28a8);
-}
-
-/* Active tab neon */
-.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active {
-  box-shadow: inset 0 -5px 25px #fc28a825;
-  position: sticky;
-}
-
-/* Active tab stripe */
-.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(to right, #000000, #ff0000) !important;
-  opacity: 1;
-  z-index: 6;
-}
-
-.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 0px;
-  transition: opacity 1s;
-  opacity: 0;
-  z-index: 6;
-}
-
-/* Active sidebar item */
-.monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked {
-  box-shadow: inset 0 -5px 25px #fc28a825;
-  position: relative;
-}
-
-.monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  top: 0px;
-  left: 0px;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, #000000, #ff0000) !important;
-  opacity: 1;
-}
-
-.monaco-workbench .active-item-indicator {
-  display: none;
-}
-
-.monaco-workbench .activitybar>.content .monaco-action-bar .action-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  top: 0px;
-  left: 0px;
-  width: 0px;
-  transition: opacity 1s;
-  opacity: 0;
-}
+      background: transparent;
+    }
+    
+    /* Add the subtle gradient to the editor background */
+    .monaco-editor {
+      background-color: transparent !important;
+      background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+      background-size: auto 100vh;
+      background-position: top;
+      background-repeat: no-repeat;
+    }
+    
+    /* Sweet sunset dots */
+    .monaco-workbench .activitybar>.content .monaco-action-bar .badge .badge-content {
+      background: linear-gradient(to bottom, #000000, #ff0000);
+    }
+    
+    /* Active tab neon */
+    .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active {
+      box-shadow: inset 0 -5px 25px #fc282881;
+      position: sticky;
+    }
+    
+    /* Active tab stripe */
+    .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #000000, #ff0000) !important;
+      opacity: 1;
+      z-index: 6;
+    }
+    
+    .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 0px;
+      transition: opacity 1s;
+      opacity: 0;
+      z-index: 6;
+    }
+    
+    /* Active sidebar item */
+    .monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked {
+      box-shadow: inset 0 -5px 25px #fc282881;
+      position: relative;
+    }
+    
+    .monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      top: 0px;
+      left: 0px;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #000000, #ff0000) !important;
+      opacity: 1;
+    }
+    
+    .monaco-workbench .active-item-indicator {
+      display: none;
+    }
+    
+    .monaco-workbench .activitybar>.content .monaco-action-bar .action-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      top: 0px;
+      left: 0px;
+      width: 0px;
+      transition: opacity 1s;
+      opacity: 0;
+    }
 
 /* update lightbulb to be neon */
 .codicon-lightbulb-autofix:before,
