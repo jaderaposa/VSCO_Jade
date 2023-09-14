@@ -153,7 +153,7 @@
   left: 0px;
   width: 4px;
   height: 100%;
-  background: linear-gradient(to bottom, #fc28a8, #03edf9) !important;
+  background: linear-gradient(to bottom, #000000, #ff0000) !important;
   opacity: 1;
 }
 
