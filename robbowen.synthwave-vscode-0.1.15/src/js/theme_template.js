@@ -91,13 +91,13 @@
     
     /* append the remaining styles */
     updatedThemeStyles = `${updatedThemeStyles}.monaco-editor .margin, .monaco-editor .inputarea.ime-input {
-      background: transparent;
+      background: transparent !important;
     }
     
     /* Add the subtle gradient to the editor background */
     .monaco-editor {
       background-color: transparent !important;
-      background-image: linear-gradient(to bottom, #000000 75%, #000000);
+      background-image: linear-gradient(to bottom, #000000 75%, #000000) !important;
       background-size: auto 100vh;
       background-position: top;
       background-repeat: no-repeat;
@@ -105,12 +105,12 @@
     
     /* Sweet sunset dots */
     .monaco-workbench .activitybar>.content .monaco-action-bar .badge .badge-content {
-      background: linear-gradient(to bottom, #000000, #ff0000);
+      background: linear-gradient(to bottom, #ff0000, #ff0000) !important;
     }
     
     /* Active tab neon */
     .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.sizing-fit.active {
-      box-shadow: inset 0 -5px 25px #fc282881;
+      box-shadow: inset 0 -5px 25px #fc282881 !important;
       position: sticky;
     }
     
@@ -141,7 +141,7 @@
     
     /* Active sidebar item */
     .monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked {
-      box-shadow: inset 0 -5px 25px #fc282881;
+      box-shadow: inset 0 -5px 25px #fc282881 !important;
       position: relative;
     }
     
@@ -153,7 +153,7 @@
       left: 0px;
       width: 4px;
       height: 100%;
-      background: linear-gradient(to bottom, #000000, #ff0000) !important;
+      background: linear-gradient(to bottom, #ff0000, #ff0000) !important;
       opacity: 1;
     }
     
@@ -170,7 +170,7 @@
       width: 0px;
       transition: opacity 1s;
       opacity: 0;
-    }
+    }    
 
 /* update lightbulb to be neon */
 .codicon-lightbulb-autofix:before,
