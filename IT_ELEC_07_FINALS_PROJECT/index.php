@@ -50,6 +50,9 @@
                 if (isset($nameToPicture[$name])) {
                     $pictures[] = $nameToPicture[$name];
                 }
+            } else {
+                // Directly append the character if it's not a letter (handles spaces and symbols)
+                $pictures[] = $letter;
             }
         }
         return $pictures;
@@ -103,8 +106,13 @@
         if ($action == 'encryption') {
             $result = encrypt($input, $letterToName, $nameToPicture);
             $outputHtml = '';
-            foreach ($result as $imgSrc) {
-                $outputHtml .= "<img src='$imgSrc' alt=''>";
+            foreach ($result as $item) {
+                if (strpos($item, 'img/') === 0) { // Check if the item is an image path
+                    $outputHtml .= "<img src='$item' alt=''>";
+                } else { // For direct characters, encode them
+                    $encodedChar = htmlspecialchars($item, ENT_QUOTES, 'UTF-8');
+                    $outputHtml .= $encodedChar; // Append encoded character directly
+                }
             }
             echo "<script>document.getElementById('output').innerHTML = " . json_encode($outputHtml) . ";</script>";
         } else {
