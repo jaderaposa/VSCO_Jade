@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'TrajanProBold';
+    src: url('font/TrajanPro-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TrajanProRegular';
+    src: url('font/TrajanPro-Regular.ttf') format('truetype');
+}
+
+* {
+    font-family: 'TrajanProRegular', sans-serif;
+}
+
+body {
+    background-color: #4B2630;
+    color: white;
+    margin: 0;
+}
+
+.title {
+    font-family: 'TrajanProBold', sans-serif;
+    font-size: 3em;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.dropdown {
+    margin-bottom: 1.5rem;
+}
+
+.dropdown select {
+    text-align: center;
+    font-size: 1.3rem;
+    width:fit-content;
+    /* Match the width of your textarea for consistency */
+    height: 3rem;
+    /* Adjust height for better usability */
+    background-color: #000000;
+    /* Theme background color */
+    color: white;
+    /* Text color to match the theme */
+    border: 1px solid #000;
+    /* Border to match textarea */
+    border-radius: 8px;
+    /* Rounded corners to match buttons and textarea */
+    padding: 0 8px;
+    /* Padding for text inside the dropdown */
+    -webkit-appearance: none;
+    /* Removes default styling on iOS */
+    -moz-appearance: none;
+    /* Removes default styling on Firefox */
+    appearance: none;
+    /* Removes default styling */
+    cursor: pointer;
+    /* Changes cursor to pointer to indicate it's clickable */
+    }
+        .dropdown select:focus {
+            border: 2px solid #fff;
+            /* Make border thicker and more noticeable */
+        }
+
+.logo img {
+    height: 65px;
+    width: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.input-output {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.input,
+.output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+button {
+    margin-top: 3rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+textarea {
+    width: 35rem;
+    /* Adjust this value to increase width */
+    height: 30rem;
+    /* Adjust this value to increase height */
+    background-color: #2E1B24;
+    border: 1px solid #000;
+    border-radius: 8px;
+    color: white;
+    padding: 10px;
+    resize: none;
+    /* Allows or disallows resizing. Set to 'vertical' to allow vertical resizing only */
+}
+
+/* .output textarea {
+    cursor: not-allowed;
+    pointer-events: none;
+} */
+
+.output-box {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    height: 30rem;
+    width: 35rem;
+    overflow-y: auto;
+    background-color: #2E1B24;
+    color: white;
+}
+
+.output-box img {
+    height: 40px;
+    margin: 5px;
+}
+
