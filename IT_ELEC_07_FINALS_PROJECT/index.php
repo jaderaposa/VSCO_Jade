@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOTA 2 Item Crypts</title>
+    <title>DOTA Crypts</title>
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
 </head>
@@ -15,7 +15,7 @@
             <div class="logo">
                 <img src="img/logo.png" alt="DOTA Logo">
             </div>
-            <div class="title">DOTA 2 Item Crypts</div>
+            <div class="title">DOTA Crypts</div>
         </div>
         <div class="dropdown">
             <select id="action">
@@ -26,13 +26,13 @@
         <div class="input-output">
             <div class="input">
                 <label for="input">INPUT</label>
-                <textarea id="input" name="input"><?= isset($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?></textarea>
+                <textarea id="input" placeholder="Enter text here to be encrypted/decrypted..." name="input"><?= isset($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?></textarea>
             </div>
-            <h1>=</h1>
+            <h1 class="arrow">&#x2794;</h1>
             <div class="output">
                 <label for="output">OUTPUT</label>
                 <div id="output" class="output-box">
-                    <?= isset($outputHtml) ? $outputHtml : '' ?>
+                    <?= isset($outputHtml) && !empty($outputHtml) ? $outputHtml : '<span class="placeholder">Encrypted/decrypted message will show here...</span>' ?>
                 </div>
             </div>
         </div>
@@ -123,4 +123,5 @@
     }
     ?>
 </body>
+
 </html>

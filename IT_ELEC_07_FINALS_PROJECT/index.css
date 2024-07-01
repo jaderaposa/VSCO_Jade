@@ -13,8 +13,8 @@
 }
 
 body {
-    background-color: #4B2630;
-    color: white;
+    background-color: white;
+    color: black;
     margin: 0;
 }
 
@@ -107,32 +107,25 @@ button {
 
 textarea {
     width: 35rem;
-    /* Adjust this value to increase width */
     height: 30rem;
-    /* Adjust this value to increase height */
-    background-color: #2E1B24;
-    border: 1px solid #000;
+    background-color: #9F9F9F;
+    border: 1px solid #989898;
     border-radius: 8px;
-    color: white;
+    color: black;
     padding: 10px;
     resize: none;
-    font-size: 1.3rem;
-    /* Allows or disallows resizing. Set to 'vertical' to allow vertical resizing only */
+    font-size: 1rem;
 }
 
-/* .output textarea {
-    cursor: not-allowed;
-    pointer-events: none;
-} */
 
 .output-box {
-    border: 1px solid #000;
+    border: 1px solid #989898;
     border-radius: 8px;
     padding: 10px;
     height: 30rem;
     width: 35rem;
     overflow-y: auto;
-    background-color: #2E1B24;
+    background-color: #9F9F9F;
     color: white;
 }
 
@@ -141,3 +134,11 @@ textarea {
     margin: 5px;
 }
 
+.arrow {
+    color: black;
+}
+
+.output-box .placeholder {
+    color: graytext;
+    /* Light grey color */
+}
