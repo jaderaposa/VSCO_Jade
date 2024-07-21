@@ -30,6 +30,18 @@ body {
     margin-bottom: 0rem;
 }
 
+.row-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row-space-between>* {
+    margin-top: 0;
+    margin-bottom: 0;
+    /* Removes vertical margin from children */
+}
+
 .dropdown {
     margin-bottom: 1rem;
 }
@@ -37,7 +49,7 @@ body {
 .dropdown select {
     text-align: center;
     font-size: 1.3rem;
-    width:fit-content;
+    width: fit-content;
     /* Match the width of your textarea for consistency */
     height: 3rem;
     /* Adjust height for better usability */
@@ -59,11 +71,12 @@ body {
     /* Removes default styling */
     cursor: pointer;
     /* Changes cursor to pointer to indicate it's clickable */
-    }
-        .dropdown select:focus {
-            border: 2px solid #fff;
-            /* Make border thicker and more noticeable */
-        }
+}
+
+.dropdown select:focus {
+    border: 2px solid #fff;
+    /* Make border thicker and more noticeable */
+}
 
 .logo img {
     height: 65px;
@@ -79,13 +92,15 @@ body {
 }
 
 .input-output {
+    margin-top: 2rem;
     display: flex;
     gap: 3rem;
     align-items: center;
-    }
-    .input-output label {
-        font-size: 1.5rem;
-    }
+}
+
+.input-output label {
+    font-size: 1.5rem;
+}
 
 .input,
 .output {
@@ -126,7 +141,7 @@ textarea {
     width: 35rem;
     overflow-y: auto;
     background-color: #9F9F9F;
-    color: white;
+    color: black;
 }
 
 .output-box img {
@@ -141,4 +156,89 @@ textarea {
 .output-box .placeholder {
     color: graytext;
     /* Light grey color */
+}
+
+#image-container {
+    width: 40%;
+    /* Match textarea width */
+    height: auto;
+    /* Adjust height based on content */
+    max-height: 30rem;
+    /* Limit maximum height to match textarea */
+    padding: 10px;
+    /* Match textarea padding */
+    border: 1px solid #989898;
+    /* Match textarea border */
+    border-radius: 8px;
+    /* Match textarea border-radius */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: flex-start;
+    background-color: #f0f0f0;
+    /* Optional: Match textarea background-color */
+}
+
+#image-container img {
+    max-width: 100%;
+    /* Ensure images do not overflow the container's width */
+    max-height: 40px;
+    /* Limit image height to keep the container tidy */
+    margin: 2px;
+    /* Space between images */
+    object-fit: contain;
+    /* Ensure aspect ratio is maintained without cropping */
+}
+
+#dark-mode-toggle {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 1;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #444;
+}
+
+/* Add this to your CSS file, e.g., synthwave84.css or create a new CSS file for dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown select {
+    background-color: #444;
+    /* Adjust the color as needed */
+    color: white;
+    /* Adjust text color as needed */
+
+}
+
+body.dark-mode .submit-button {
+    background-color: #444;
+    /* Adjust the color as needed */
+    color: white;
+    /* Adjust text color as needed */
+}
+
+/* Example of overriding specific elements in dark mode */
+body.dark-mode .monaco-workbench .activitybar>.content .monaco-action-bar .action-item.checked {
+    box-shadow: inset 0 -5px 25px #555 !important;
+    background: linear-gradient(to bottom, #333, #333) !important;
+}
+
+.fa-microphone {
+    font-size: 1.5rem;
+}
+
+.fa-microphone.listening {
+    color: red;
+    /* Change color to red when recording */
 }
