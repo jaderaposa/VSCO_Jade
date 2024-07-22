@@ -46,21 +46,21 @@ $nameToPicture = [
         <i class="fas fa-moon" style="display:none;"></i> <!-- Dark mode icon -->
     </button>
     <div class="container">
-        <div class="row">
+        <div class="row" title="Made by Jaded Raposa">
             <div class="logo">
                 <img src="img/logo.png" alt="DOTA Logo">
             </div>
             <div class="title">DOTA Crypts</div>
         </div>
         <div class="dropdown">
-            <select id="action">
+            <select id="action" title="Click to choose your desired action (Encrypt/Decrypt)">
                 <option value="encryption" <?= (isset($_POST['action']) && $_POST['action'] == 'encryption') ? 'selected' : '' ?>>Encrypt</option>
                 <option value="decryption" <?= (isset($_POST['action']) && $_POST['action'] == 'decryption') ? 'selected' : '' ?>>Decrypt</option>
             </select>
         </div>
-        <div id="image-container" title="These images are only used for decryption" class="image-container">
+        <div id="image-container" title="These images are only used for decryption. Click the images to input" class="image-container">
             <?php foreach ($nameToPicture as $name => $picturePath) : ?>
-                <img src="<?= htmlspecialchars($picturePath) ?>" alt="<?= htmlspecialchars($name) ?>" class="selectable-image" data-value="<?= htmlspecialchars($picturePath) ?>">
+                <img src="<?= htmlspecialchars($picturePath) ?>" alt="<?= htmlspecialchars($name) ?>" class="selectable-image" style="cursor: pointer;border-radius:4px" data-value="<?= htmlspecialchars($picturePath) ?>">
             <?php endforeach; ?>
         </div>
         <div class="input-output">
@@ -68,7 +68,7 @@ $nameToPicture = [
                 <div class="row-space-between">
                     <label for="input">INPUT</label>
                     <!-- microphone icon here -->
-                    <i class="fa fa-microphone" id="startBtn" style="cursor: pointer;"></i>
+                    <i class="fa fa-microphone" title="Speech Recognition (No, you can't record an image lmao) : Click to start recording" id="startBtn" style="cursor: pointer;"></i>
                 </div>
                 <input type="hidden" id="hiddenImagePath" name="hiddenImagePath" value="">
                 <input type="hidden" id="hiddenInputText" name="hiddenInputText" value="">
@@ -82,8 +82,8 @@ $nameToPicture = [
                     <label for="output">OUTPUT</label>
                     <!-- text to speech icon here --->
                     <div class="row-space-between">
-                        <i class="fa fa-volume-up" id="speakBtn" style="cursor: pointer;"></i>
-                        &nbsp;
+                        <i class="fa fa-volume-up" title="Text-to-Speech (Text only Captain Obvious) : Click to play the text" id="speakBtn" style="cursor: pointer;"></i>
+                        &nbsp;&nbsp;
                         <select id="voiceSelection"></select>
                     </div>
                 </div>
