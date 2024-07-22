@@ -75,7 +75,11 @@ $nameToPicture = [
             </div>
             <h1 class="arrow">&#x2794;</h1>
             <div class="output">
-                <label for="output">OUTPUT</label>
+                <div class="row-space-between">
+                    <label for="output">OUTPUT</label>
+                    <!-- text to speech icon here --->
+                    <i class="fa fa-volume-up" id="speakBtn" style="cursor: pointer;"></i>
+                </div>
                 <div id="output" class="output-box">
                     <?= isset($outputHtml) && !empty($outputHtml) ? $outputHtml : '<span class="placeholder">Encrypted/decrypted message will show here...</span>' ?>
                 </div>
