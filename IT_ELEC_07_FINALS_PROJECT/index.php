@@ -58,7 +58,7 @@ $nameToPicture = [
                 <option value="decryption" <?= (isset($_POST['action']) && $_POST['action'] == 'decryption') ? 'selected' : '' ?>>Decrypt</option>
             </select>
         </div>
-        <div id="image-container" class="image-container">
+        <div id="image-container" title="These images are only used for decryption" class="image-container">
             <?php foreach ($nameToPicture as $name => $picturePath) : ?>
                 <img src="<?= htmlspecialchars($picturePath) ?>" alt="<?= htmlspecialchars($name) ?>" class="selectable-image" data-value="<?= htmlspecialchars($picturePath) ?>">
             <?php endforeach; ?>
@@ -73,7 +73,7 @@ $nameToPicture = [
                 <input type="hidden" id="hiddenImagePath" name="hiddenImagePath" value="">
                 <input type="hidden" id="hiddenInputText" name="hiddenInputText" value="">
                 <div id="input" contenteditable="true" class="input-box">
-                    <?= isset($_POST['input']) && !empty($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?>
+                    <?= isset($_POST['input']) && !empty($_POST['input']) ? htmlspecialchars($_POST['input']) : '<p class="placeholder" style="color: graytext;margin:0;">Enter a message to encrypt or click the images above for decrypting.&nbsp;Remove this text to begin...</p>' ?>
                 </div>
             </div>
             <h1 class="arrow">&#x2794;</h1>
@@ -88,11 +88,11 @@ $nameToPicture = [
                     </div>
                 </div>
                 <div id="output" class="output-box">
-                    <?= isset($outputHtml) && !empty($outputHtml) ? $outputHtml : '<span class="placeholder">Encrypted/decrypted message will show here...</span>' ?>
+                    <?= isset($outputHtml) && !empty($outputHtml) ? $outputHtml : '<span class="placeholder">Encrypted & Decrypted message will show here...</span>' ?>
                 </div>
             </div>
         </div>
-        <button class="submit-button" onclick="submitForm()">Submit</button>
+        <button class="submit-button" onclick="submitForm()">Initialize</button>
     </div>
 
     <?php
