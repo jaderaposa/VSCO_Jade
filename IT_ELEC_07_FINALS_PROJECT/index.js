@@ -89,7 +89,7 @@ function handleImageSelection() {
 			const imagePath = e.target.getAttribute("data-value");
 
 			// Append the new image to the existing content of inputDiv
-			inputDiv.innerHTML += `<img src="${imagePath}" alt="Selected Image" style="max-width:100%;">`;
+			inputDiv.innerHTML += `<img src="${imagePath}" alt="Selected Image" style="height: 40px; margin: 5px;">`;
 
 			// Optionally, update the hidden input to include the new image path
 			// This assumes updateHiddenInput function is designed to handle multiple paths
