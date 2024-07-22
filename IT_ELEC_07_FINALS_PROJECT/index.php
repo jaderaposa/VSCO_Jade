@@ -70,15 +70,22 @@ $nameToPicture = [
                     <!-- microphone icon here -->
                     <i class="fa fa-microphone" id="startBtn" style="cursor: pointer;"></i>
                 </div>
-                <textarea id="input" placeholder="Enter text here to be encrypted/decrypted..." name="input"><?= isset($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?></textarea>
-
+                <input type="hidden" id="hiddenImagePath" name="hiddenImagePath" value="">
+                <input type="hidden" id="hiddenInputText" name="hiddenInputText" value="">
+                <div id="input" contenteditable="true" class="input-box" placeholder="Enter text here to be encrypted/decrypted or image path...">
+                    <?= isset($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?>
+                </div>
             </div>
             <h1 class="arrow">&#x2794;</h1>
             <div class="output">
                 <div class="row-space-between">
                     <label for="output">OUTPUT</label>
                     <!-- text to speech icon here --->
-                    <i class="fa fa-volume-up" id="speakBtn" style="cursor: pointer;"></i>
+                    <div class="row-space-between">
+                        <i class="fa fa-volume-up" id="speakBtn" style="cursor: pointer;"></i>
+                        &nbsp;
+                        <select id="voiceSelection"></select>
+                    </div>
                 </div>
                 <div id="output" class="output-box">
                     <?= isset($outputHtml) && !empty($outputHtml) ? $outputHtml : '<span class="placeholder">Encrypted/decrypted message will show here...</span>' ?>
@@ -124,9 +131,10 @@ $nameToPicture = [
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $input = $_POST['input'];
+        // $input = $_POST['hiddenImagePath']; // Use the hidden input for image paths
         $action = $_POST['action'];
         if ($action == 'encryption') {
+            $input = $_POST['hiddenInputText']; // Use the text input for encryption
             $result = encrypt($input, $letterToName, $nameToPicture);
             $outputHtml = '';
             foreach ($result as $item) {
@@ -140,10 +148,21 @@ $nameToPicture = [
             echo "<script>document.getElementById('output').innerHTML = " . json_encode($outputHtml) . ";</script>";
         }
         if ($action == 'decryption') {
-            // Assuming $input now contains the comma-separated image paths
-            $pictures = explode(',', $input); // Split the input into individual image paths
-            $result = decrypt($pictures, $nameToPicture, $letterToName);
-            echo "<script>document.getElementById('output').textContent = " . json_encode($result) . ";</script>";
+            $input = $_POST['hiddenImagePath']; // Use the hidden input for image paths
+            $inputParts = explode(',', $input); // Split the hidden input into individual image paths
+            $outputHtml = '';
+            foreach ($inputParts as $part) {
+                if (strpos($part, 'img/') === 0 && file_exists($part)) { // Check if the part is an image path and exists
+                    $name = array_search($part, $nameToPicture); // Find the name corresponding to the image path
+                    if ($name !== false) {
+                        $letter = array_search($name, $letterToName); // Find the letter corresponding to the name
+                        if ($letter !== false) {
+                            $outputHtml .= $letter;
+                        }
+                    }
+                }
+            }
+            echo "<script>document.getElementById('output').innerHTML = " . json_encode($outputHtml) . ";</script>";
         }
     }
     ?>

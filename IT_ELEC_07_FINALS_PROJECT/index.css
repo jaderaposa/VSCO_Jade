@@ -133,7 +133,7 @@ textarea {
 }
 
 
-.output-box {
+.output-box, .input-box {
     border: 1px solid #989898;
     border-radius: 8px;
     padding: 10px;
@@ -163,13 +163,13 @@ textarea {
     height: auto;
     max-height: 30rem;
     padding: 10px;
-    border: 1px solid #989898;
+    border: 2px solid black;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: #9F9F9F;
 }
 
 #image-container img {
@@ -205,11 +205,19 @@ body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
     }
-    body.dark-mode .dropdown select, body.dark-mode .submit-button, body.dark-mode #image-container {
+    body.dark-mode .dropdown select, body.dark-mode .submit-button, body.dark-mode #image-container, body.dark-mode #voiceSelection {
         background-color: #444;
         /* Adjust the color as needed */
         color: white;
         /* Adjust text color as needed */
+    }
+    body.dark-mode .arrow {
+        color: white;
+        /* Adjust the color as needed */
+    }
+    body.dark-mode #image-container {
+        border: 2px solid white;
+        background-color: #9F9F9F;
     }
 
 /* Example of overriding specific elements in dark mode */
@@ -226,4 +234,32 @@ body.dark-mode .monaco-workbench .activitybar>.content .monaco-action-bar .actio
 .fa-microphone.listening {
     color: red;
     /* Change color to red when recording */
+}
+
+#voiceSelection {
+    text-align: center;
+    /* align-items: center;
+    justify-content: center;
+    display: flex; */
+    /* font-size: 1rem; */
+    max-width: 140px;
+    /* Limit the width of the select element */
+    width: fit-content;
+    /* Ensure it takes up the available space up to max-width */
+    height: 1.5rem;
+    /* background-color: #000000; */
+    color: black;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 0 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    overflow: hidden;
+    /* Prevent text from overflowing */
+    text-overflow: ellipsis;
+    /* Add ellipsis when text overflows */
+    white-space: nowrap;
+    /* Prevent text from wrapping to the next line */
 }
