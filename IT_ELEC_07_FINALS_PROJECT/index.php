@@ -54,8 +54,8 @@ $nameToPicture = [
         </div>
         <div class="dropdown">
             <select id="action" title="Click to choose your desired action (Encrypt/Decrypt)">
-                <option value="encryption" <?= (isset($_POST['action']) && $_POST['action'] == 'encryption') ? 'selected' : '' ?>>Encrypt</option>
-                <option value="decryption" <?= (isset($_POST['action']) && $_POST['action'] == 'decryption') ? 'selected' : '' ?>>Decrypt</option>
+                <option value="encryption" <?= (isset($_POST['action']) && $_POST['action'] == 'encryption') ? 'selected' : '' ?>>Encryption</option>
+                <option value="decryption" <?= (isset($_POST['action']) && $_POST['action'] == 'decryption') ? 'selected' : '' ?>>Decryption</option>
             </select>
         </div>
         <div id="image-container" title="These images are only used for decryption. Click the images to input" class="image-container">

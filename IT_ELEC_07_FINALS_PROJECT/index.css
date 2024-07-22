@@ -262,8 +262,8 @@ body.dark-mode .monaco-workbench .activitybar>.content .monaco-action-bar .actio
     width: fit-content;
     /* Ensure it takes up the available space up to max-width */
     height: 1.5rem;
-    /* background-color: #000000; */
-    color: black;
+    background-color: #000000;
+    color: white;
     border: 1px solid #000;
     border-radius: 8px;
     padding: 0 8px;
