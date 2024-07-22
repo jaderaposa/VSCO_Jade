@@ -144,6 +144,11 @@ textarea {
     color: black;
 }
 
+.input-box.placeholder {
+    color: #676767;
+    /* Placeholder text color */
+}
+
 .output-box img {
     height: 40px;
     margin: 5px;
@@ -188,8 +193,8 @@ textarea {
     top: 0;
     right: 10px;
     z-index: 1;
-    background-color: #333;
-    color: #fff;
+    background-color: transparent;
+    color: black;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -197,8 +202,18 @@ textarea {
 }
 
 #dark-mode-toggle:hover {
-    background-color: #444;
+    background-color: black;
+    color: white;
 }
+
+body.dark-mode #dark-mode-toggle {
+    color: white;
+    }
+    body.dark-mode #dark-mode-toggle:hover {
+        color: black;
+        background-color: white;
+    }
+
 
 /* Add this to your CSS file, e.g., synthwave84.css or create a new CSS file for dark mode styles */
 body.dark-mode {

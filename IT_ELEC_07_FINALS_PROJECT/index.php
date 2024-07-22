@@ -72,8 +72,8 @@ $nameToPicture = [
                 </div>
                 <input type="hidden" id="hiddenImagePath" name="hiddenImagePath" value="">
                 <input type="hidden" id="hiddenInputText" name="hiddenInputText" value="">
-                <div id="input" contenteditable="true" class="input-box" placeholder="Enter text here to be encrypted/decrypted or image path...">
-                    <?= isset($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?>
+                <div id="input" contenteditable="true" class="input-box">
+                    <?= isset($_POST['input']) && !empty($_POST['input']) ? htmlspecialchars($_POST['input']) : '' ?>
                 </div>
             </div>
             <h1 class="arrow">&#x2794;</h1>
