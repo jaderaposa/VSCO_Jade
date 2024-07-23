@@ -120,7 +120,10 @@ $nameToPicture = [
         $letters = array_flip($letterToName);
         $text = '';
         foreach ($pictures as $picture) {
-            if (isset($names[$picture])) {
+            // Check if the picture is actually a space or a special character
+            if ($picture === ' ' || !isset($names[$picture])) {
+                $text .= $picture; // Directly append the space or special character
+            } else {
                 $name = $names[$picture];
                 if (isset($letters[$name])) {
                     $text .= $letters[$name];
@@ -159,6 +162,12 @@ $nameToPicture = [
                         if ($letter !== false) {
                             $outputHtml .= $letter;
                         }
+                    } else {
+                        // Assuming spaces/special characters are inferred, insert a space unless it's the first character
+                        if (!empty($outputHtml)) {
+                            $outputHtml .= ' '; // Insert space before appending next character, except at the beginning
+                        }
+                        $outputHtml .= $picture; // Directly append the space or special character
                     }
                 }
             }
