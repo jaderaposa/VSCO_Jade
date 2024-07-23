@@ -18,7 +18,7 @@ $letterToName = [
     'M' => 'Mjollnir', 'N' => 'Null Talisman', 'O' => 'Octarine Core', 'P' => 'Power Treads',
     'Q' => 'Quelling Blade', 'R' => 'Radiance', 'S' => 'Shadow Blade', 'T' => 'Tango',
     'U' => 'Urn of Shadows', 'V' => 'Vanguard', 'W' => 'Wind Lace', 'X' => 'Aegis of the Immortal',
-    'Y' => 'Yasha', 'Z' => 'Divine Rapier'
+    'Y' => 'Yasha', 'Z' => 'Divine Rapier', ' ' => 'Chronosphere'
 ];
 
 $nameToPicture = [
@@ -34,7 +34,7 @@ $nameToPicture = [
     'Shadow Blade' => 'img/Shadow_Blade_icon.png', 'Tango' => 'img/Tango_icon.png',
     'Urn of Shadows' => 'img/Urn_of_Shadows_icon.png', 'Vanguard' => 'img/Vanguard_icon.png',
     'Wind Lace' => 'img/Wind_Lace_icon.png', 'Aegis of the Immortal' => 'img/Aegis_of_the_Immortal_icon.png',
-    'Yasha' => 'img/Yasha_icon.png', 'Divine Rapier' => 'img/Divine_Rapier_icon.png'
+    'Yasha' => 'img/Yasha_icon.png', 'Divine Rapier' => 'img/Divine_Rapier_icon.png', 'Chronosphere' => 'img/Chronosphere_icon.png'
 ];
 
 ?>
@@ -84,7 +84,7 @@ $nameToPicture = [
                     <div class="row-space-between">
                         <i class="fa fa-volume-up" title="Text-to-Speech (Text only Captain Obvious) : Click to play the text" id="speakBtn" style="cursor: pointer;"></i>
                         &nbsp;&nbsp;
-                        <select id="voiceSelection"></select>
+                        <select title="Click to choose a desired Text-to-Speech Voice" id="voiceSelection"></select>
                     </div>
                 </div>
                 <div id="output" class="output-box">
